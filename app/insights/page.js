@@ -109,7 +109,7 @@ export default function InsightsPage() {
     <main className={styles.page}>
       <header className={styles.header}>
         <div className={styles.shell}>
-          <Link href="/" className={styles.leftLink}>
+          <Link href="/#about" className={styles.leftLink}>
             {t.nav.left}
           </Link>
 
@@ -122,7 +122,7 @@ export default function InsightsPage() {
           </Link>
 
           <nav className={styles.rightNav}>
-            <Link href="/">{t.nav.first}</Link>
+            <Link href="/#expertise">{t.nav.first}</Link>
             <Link href="/insights">{t.nav.second}</Link>
             <div className={styles.languageControl} ref={languageRef}>
               <button
@@ -249,9 +249,9 @@ export default function InsightsPage() {
           </Link>
 
           <nav className={styles.footerNav}>
-            <Link href="/">{t.nav.left}</Link>
-            <Link href="/">{t.nav.first}</Link>
-            <Link href="/insights">{t.nav.second}</Link>
+            <Link href="/#about">{t.nav.left}</Link>
+            <Link href="/#expertise">{t.nav.first}</Link>
+            <Link href="/#top">{t.nav.second}</Link>
           </nav>
 
           <div className={styles.footerSocial}>

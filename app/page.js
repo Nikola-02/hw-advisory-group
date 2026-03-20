@@ -335,7 +335,7 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main id="top">
       <section className={styles.hero}>
         <img
           src="/hero_section_golf_hw.jpg"
@@ -344,7 +344,7 @@ export default function Home() {
           className={styles.heroImage}
         />
         <header className={styles.header}>
-          <a href="#" className={styles.leftLink}>
+          <a href="#about" className={styles.leftLink}>
             {t.nav.left}
           </a>
 
@@ -357,7 +357,7 @@ export default function Home() {
           </a>
 
           <nav className={styles.rightNav}>
-            <a href="#">{t.nav.first}</a>
+            <a href="#expertise">{t.nav.first}</a>
             <button
               type="button"
               className={styles.navInsightsButton}
@@ -489,7 +489,7 @@ export default function Home() {
         </section>
       </section>
 
-      <section className={styles.introSection} ref={introSectionRef}>
+      <section id="about" className={styles.introSection} ref={introSectionRef}>
         <div className={styles.introInner}>
           <p className={`${styles.introText} ${isIntroVisible ? styles.introTextVisible : ""}`}>
             {renderIntroStatement(t.introStatementParts)}
@@ -501,7 +501,7 @@ export default function Home() {
         <div className={styles.detailsInner}>
           <div className={styles.divider} />
 
-          <section className={styles.infoSection}>
+          <section id="expertise" className={styles.infoSection}>
             <h2>{t.sections[0].title}</h2>
             <p className={styles.goldLead}>{t.sections[0].lead}</p>
 
@@ -569,9 +569,9 @@ export default function Home() {
           </a>
 
           <nav className={styles.footerNav}>
-            <a href="#">{t.nav.left}</a>
-            <a href="#">{t.nav.first}</a>
-            <Link href={insightsPath}>{t.nav.second}</Link>
+            <a href="#about">{t.nav.left}</a>
+            <a href="#expertise">{t.nav.first}</a>
+            <Link href="/#top">{t.nav.second}</Link>
           </nav>
 
           <div className={styles.footerSocial}>
