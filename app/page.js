@@ -16,11 +16,11 @@ const translations = {
       start: "START",
     },
     hero: {
-      strong: "PRISTUP",
-      thinOne: "KOJI DRUGI",
-      boldItalic: "NE MOGU",
-      thinTwo: "DA",
-      gold: "PONUDE",
+      strong: "Pristup",
+      thinOne: "koji drugi",
+      boldItalic: "ne mogu",
+      thinTwo: "da",
+      gold: "ponude",
       ctaPrimary: "Zakaži konsultacije",
       ctaSecondary: "Saznaj Više",
     },
@@ -28,6 +28,9 @@ const translations = {
       title: "Napomena o zakazivanju",
       text: "Nastavkom i unosom podataka za zakazivanje pristajete na uslove koriscenja Calendly platforme. Podaci za rezervaciju unose se direktno u Calendly.",
       button: "Razumem",
+    },
+    footer: {
+      rights: "© 2026 HUNTWELL ADVISORY GROUP. SVA PRAVA ZADRŽANA.",
     },
     sections: [
       {
@@ -73,24 +76,27 @@ const translations = {
     optionSr: "SRB",
     optionEn: "ENG",
     nav: {
-      left: "ABOUT",
-      first: "SERVICES",
-      second: "COURSES",
+      left: "About",
+      first: "Services",
+      second: "Our Insights",
       start: "START",
     },
     hero: {
-      strong: "APPROACH",
-      thinOne: "THAT OTHERS",
-      boldItalic: "CANNOT",
-      thinTwo: "TRULY",
-      gold: "OFFER",
-      ctaPrimary: "BOOK A SESSION",
-      ctaSecondary: "LEARN MORE",
+      strong: "An Approach",
+      thinOne: "Few",
+      boldItalic: "Can",
+      thinTwo: "",
+      gold: "Offer",
+      ctaPrimary: "Book a Consultation",
+      ctaSecondary: "Learn More",
     },
     consent: {
       title: "Booking notice",
       text: "By continuing and entering booking details, you agree to Calendly's terms of use. Reservation data is submitted directly through Calendly.",
       button: "I understand",
+    },
+    footer: {
+      rights: "© 2026 HUNTWELL ADVISORY GROUP. ALL RIGHTS RESERVED.",
     },
     sections: [
       {
@@ -136,10 +142,28 @@ const translations = {
 export default function Home() {
   const [language, setLanguage] = useState("sr");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [showConsentPopup, setShowConsentPopup] = useState(false);
   const languageRef = useRef(null);
   const t = translations[language];
-  const consentStorageKey = "lw_calendly_notice_ack";
+  const languageStorageKey = "hw_site_language";
+
+  useEffect(() => {
+    try {
+      const storedLanguage = window.localStorage.getItem(languageStorageKey);
+      if (storedLanguage === "sr" || storedLanguage === "en") {
+        setLanguage(storedLanguage);
+      }
+    } catch {
+      // Ignore storage issues and keep default Serbian.
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(languageStorageKey, language);
+    } catch {
+      // Ignore storage issues.
+    }
+  }, [language]);
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -151,26 +175,6 @@ export default function Home() {
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
-
-  useEffect(() => {
-    try {
-      const hasAccepted = window.localStorage.getItem(consentStorageKey);
-      if (!hasAccepted) {
-        setShowConsentPopup(true);
-      }
-    } catch {
-      setShowConsentPopup(true);
-    }
-  }, []);
-
-  function handleConsentAccept() {
-    try {
-      window.localStorage.setItem(consentStorageKey, "1");
-    } catch {
-      // Ignore storage issues and just close popup.
-    }
-    setShowConsentPopup(false);
-  }
 
   return (
     <main>
@@ -286,7 +290,11 @@ export default function Home() {
             <em>
               <strong className={styles.heroBlackItalic}>{t.hero.boldItalic}</strong>
             </em>{" "}
-            <span className={styles.thinText}>{t.hero.thinTwo}</span>{" "}
+            {t.hero.thinTwo ? (
+              <>
+                <span className={styles.thinText}>{t.hero.thinTwo}</span>{" "}
+              </>
+            ) : null}
             <span className={styles.goldText}>{t.hero.gold}</span>
           </h1>
 
@@ -337,19 +345,43 @@ export default function Home() {
         </div>
       </section>
 
-      {showConsentPopup && (
-        <aside className={styles.consentPopup} role="dialog" aria-live="polite">
-          <h3>{t.consent.title}</h3>
-          <p>{t.consent.text}</p>
-          <button
-            type="button"
-            className={styles.consentButton}
-            onClick={handleConsentAccept}
-          >
-            {t.consent.button}
-          </button>
-        </aside>
-      )}
+      <footer className={styles.footer}>
+        <div className={styles.footerInner}>
+          <a href="#" className={styles.footerLogoWrap} aria-label="HuntWell Advisory Group">
+            <img
+              src="/hw_advisory_group_blue_logo.png"
+              alt="HuntWell Advisory Group logo"
+              className={styles.footerLogo}
+            />
+          </a>
+
+          <nav className={styles.footerNav}>
+            <a href="#">{t.nav.left}</a>
+            <a href="#">{t.nav.first}</a>
+            <a href="#">{t.nav.second}</a>
+          </nav>
+
+          <div className={styles.footerSocial}>
+            <a href="#" target="_blank" rel="noreferrer">
+              INSTAGRAM ↗
+            </a>
+            <a
+              href="https://www.linkedin.com/company/huntwell-advisory-group/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LINKEDIN ↗
+            </a>
+          </div>
+
+          <a href="mailto:contact@huntwell.rs" className={styles.footerMail}>
+            contact@huntwell.rs
+          </a>
+
+          <p className={styles.footerRights}>{t.footer.rights}</p>
+        </div>
+      </footer>
+
     </main>
   );
 }

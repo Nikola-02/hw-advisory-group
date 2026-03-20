@@ -21,6 +21,14 @@ const translations = {
     title: "Zakazivanje konsultacija",
     description:
       "Izaberite termin koji vam odgovara i automatski zakazite poziv preko Calendly platforme.",
+    consent: {
+      title: "Napomena o zakazivanju",
+      text: "Nastavkom i unosom podataka za zakazivanje pristajete na uslove koriscenja Calendly platforme. Podaci za rezervaciju unose se direktno u Calendly.",
+      button: "Razumem",
+    },
+    footer: {
+      rights: "© 2026 HUNTWELL ADVISORY GROUP. SVA PRAVA ZADRŽANA.",
+    },
     notice: "Dodajte svoj link u promenljivu",
     noticeSuffix: "da bi se prikazao vas kalendar.",
   },
@@ -29,13 +37,21 @@ const translations = {
     optionSr: "Serbian",
     optionEn: "English",
     nav: {
-      left: "ABOUT",
-      first: "SERVICES",
-      second: "COURSES",
+      left: "About",
+      first: "Services",
+      second: "Our Insights",
     },
     title: "Schedule a consultation",
     description:
       "Choose a time slot that works for you and schedule a call automatically through Calendly.",
+    consent: {
+      title: "Booking notice",
+      text: "By continuing and entering booking details, you agree to Calendly's terms of use. Reservation data is submitted directly through Calendly.",
+      button: "I understand",
+    },
+    footer: {
+      rights: "© 2026 HUNTWELL ADVISORY GROUP. ALL RIGHTS RESERVED.",
+    },
     notice: "Add your link to",
     noticeSuffix: "so your calendar can be displayed.",
   },
@@ -44,14 +60,36 @@ const translations = {
 export default function StartPage() {
   const [language, setLanguage] = useState("sr");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [showConsentPopup, setShowConsentPopup] = useState(false);
   const languageRef = useRef(null);
   const t = translations[language];
+  const consentStorageKey = "lw_calendly_notice_ack";
+  const languageStorageKey = "hw_site_language";
 
   const embedUrl = `${calendlyUrl}${
     calendlyUrl.includes("?") ? "&" : "?"
   }hide_gdpr_banner=1`;
 
   const isPlaceholder = calendlyUrl.includes("your-calendly-link");
+
+  useEffect(() => {
+    try {
+      const storedLanguage = window.localStorage.getItem(languageStorageKey);
+      if (storedLanguage === "sr" || storedLanguage === "en") {
+        setLanguage(storedLanguage);
+      }
+    } catch {
+      // Ignore storage issues and keep default Serbian.
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(languageStorageKey, language);
+    } catch {
+      // Ignore storage issues.
+    }
+  }, [language]);
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -63,6 +101,26 @@ export default function StartPage() {
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
+
+  useEffect(() => {
+    try {
+      const hasAccepted = window.localStorage.getItem(consentStorageKey);
+      if (!hasAccepted) {
+        setShowConsentPopup(true);
+      }
+    } catch {
+      setShowConsentPopup(true);
+    }
+  }, []);
+
+  function handleConsentAccept() {
+    try {
+      window.localStorage.setItem(consentStorageKey, "1");
+    } catch {
+      // Ignore storage issues and just close popup.
+    }
+    setShowConsentPopup(false);
+  }
 
   return (
     <main className={styles.page}>
@@ -145,6 +203,57 @@ export default function StartPage() {
           />
         </div>
       </section>
+
+      <footer className={styles.footer}>
+        <div className={styles.footerInner}>
+          <Link href="/" className={styles.footerLogoWrap} aria-label="HuntWell Advisory Group">
+            <img
+              src="/hw_advisory_group_blue_logo.png"
+              alt="HuntWell Advisory Group logo"
+              className={styles.footerLogo}
+            />
+          </Link>
+
+          <nav className={styles.footerNav}>
+            <Link href="/">{t.nav.left}</Link>
+            <Link href="/">{t.nav.first}</Link>
+            <Link href="/">{t.nav.second}</Link>
+          </nav>
+
+          <div className={styles.footerSocial}>
+            <a href="#" target="_blank" rel="noreferrer">
+              INSTAGRAM ↗
+            </a>
+            <a
+              href="https://www.linkedin.com/company/huntwell-advisory-group/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LINKEDIN ↗
+            </a>
+          </div>
+
+          <a href="mailto:contact@huntwell.rs" className={styles.footerMail}>
+            contact@huntwell.rs
+          </a>
+
+          <p className={styles.footerRights}>{t.footer.rights}</p>
+        </div>
+      </footer>
+
+      {showConsentPopup && (
+        <aside className={styles.consentPopup} role="dialog" aria-live="polite">
+          <h3>{t.consent.title}</h3>
+          <p>{t.consent.text}</p>
+          <button
+            type="button"
+            className={styles.consentButton}
+            onClick={handleConsentAccept}
+          >
+            {t.consent.button}
+          </button>
+        </aside>
+      )}
     </main>
   );
 }
