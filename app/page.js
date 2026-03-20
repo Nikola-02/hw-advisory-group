@@ -113,6 +113,8 @@ const translations = {
       eyebrow: "Uvidi i perspektive HuntWell Advisory Group",
       headline: "Naša najnovija razmišljanja o temama koje oblikuju budućnost poslovanja i društva",
     },
+    closingQuote:
+      "Radimo sa organizacijama koje razumeju da ozbiljni poslovni rezultati nisu stvar slučaja, već promišljenog pristupa.",
   },
   en: {
     langLabel: "Language",
@@ -207,6 +209,8 @@ const translations = {
       eyebrow: "HuntWell Advisory Group Insights & Perspectives",
       headline: "Our latest thinking on the topics shaping the future of business and society",
     },
+    closingQuote:
+      "We work with organizations that understand serious business results are not a matter of chance, but of a deliberate approach.",
   },
 };
 
@@ -216,6 +220,7 @@ export default function Home() {
   const languageRef = useRef(null);
   const t = translations[language];
   const languageStorageKey = "hw_site_language";
+  const insightsPath = "/insights";
 
   useEffect(() => {
     try {
@@ -277,7 +282,7 @@ export default function Home() {
 
           <nav className={styles.rightNav}>
             <a href="#">{t.nav.first}</a>
-            <a href="#">{t.nav.second}</a>
+            <Link href={insightsPath}>{t.nav.second}</Link>
             <div className={styles.languageControl} ref={languageRef}>
               <button
                 type="button"
@@ -414,13 +419,19 @@ export default function Home() {
         </div>
       </section>
 
+      <section className={styles.closingQuoteSection}>
+        <div className={styles.closingQuoteInner}>
+          <p>{t.closingQuote}</p>
+        </div>
+      </section>
+
       <section className={styles.preFooterSection}>
         <div className={styles.preFooterContent}>
           <p className={styles.preFooterEyebrow}>{t.preFooter.eyebrow}</p>
-          <Link href="#our-insights" className={styles.preFooterLink}>
+          <Link href={insightsPath} className={styles.preFooterLink}>
             {t.preFooter.headline}
           </Link>
-          <Link href="#our-insights" className={styles.preFooterArrow} aria-label={t.nav.second}>
+          <Link href={insightsPath} className={styles.preFooterArrow} aria-label={t.nav.second}>
             &gt;
           </Link>
         </div>
@@ -446,7 +457,7 @@ export default function Home() {
           <nav className={styles.footerNav}>
             <a href="#">{t.nav.left}</a>
             <a href="#">{t.nav.first}</a>
-            <a href="#">{t.nav.second}</a>
+            <Link href={insightsPath}>{t.nav.second}</Link>
           </nav>
 
           <div className={styles.footerSocial}>
