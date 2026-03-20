@@ -372,8 +372,8 @@
 }
 
 .actionSecondary {
-  color: #e29104;
-  border-color: #e29104;
+  color: #f6c86b;
+  border-color: #f6c86b;
 }
 
 .actionPrimary:hover {
@@ -383,8 +383,8 @@
 }
 
 .actionSecondary:hover {
-  border-color: #ffe7a8;
-  background: rgba(255, 231, 168, 0.12);
+  border-color: #ffe09b;
+  background: rgba(246, 200, 107, 0.14);
   backdrop-filter: blur(44px) saturate(150%);
   -webkit-backdrop-filter: blur(44px) saturate(150%);
 }
