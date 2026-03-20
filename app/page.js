@@ -354,6 +354,7 @@ export default function Home() {
               alt="HuntWell Advisory Group logo"
               className={styles.logo}
             />
+            <span className={styles.logoSubtext}>Advisory Group</span>
           </a>
 
           <nav className={styles.rightNav}>
