@@ -18,13 +18,18 @@ const translations = {
       first: "Usluge",
       second: "Naši Uvidi",
     },
+    insightsDropdown: {
+      title: "Naši Uvidi",
+      laborMarket: "Tržište rada",
+      employerBranding: "Employer branding",
+    },
     title: "ZAKAŽITE KONSULTACIJE",
     subtitle: "HUNTWELL ADVISORY GROUP",
     description:
       "Izaberite termin koji vam odgovara i automatski zakažite poziv preko Calendly platforme.",
     consent: {
       title: "Napomena o zakazivanju",
-      text: "Nastavkom i unosom podataka za zakazivanje pristajete na uslove koriscenja Calendly platforme. Podaci za rezervaciju unose se direktno u Calendly.",
+      text: "Nastavkom i unosom podataka za zakazivanje pristajete na uslove korišćenja Calendly platforme. Podaci za rezervaciju unose se direktno u Calendly.",
       button: "Razumem",
     },
     footer: {
@@ -41,6 +46,11 @@ const translations = {
       left: "About",
       first: "Services",
       second: "Our Insights",
+    },
+    insightsDropdown: {
+      title: "Our Insights",
+      laborMarket: "Labor market",
+      employerBranding: "Employer branding",
     },
     title: "BOOK A CONSULTATION",
     subtitle: "HUNTWELL ADVISORY GROUP",
@@ -62,12 +72,17 @@ const translations = {
 export default function ConsultationPage() {
   const [language, setLanguage] = useState("sr");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isInsightsOpen, setIsInsightsOpen] = useState(false);
   const [showConsentPopup, setShowConsentPopup] = useState(false);
   const languageRef = useRef(null);
+  const insightsTriggerRef = useRef(null);
+  const insightsDropdownRef = useRef(null);
   const t = translations[language];
   const consentStorageKey = "hw_calendly_notice_ack";
   const languageStorageKey = "hw_site_language";
   const insightsPath = "/insights";
+  const laborMarketPath = "/insights#labor-market";
+  const employerBrandingPath = "/insights#employer-branding";
 
   const embedUrl = `${calendlyUrl}${calendlyUrl.includes("?") ? "&" : "?"}hide_gdpr_banner=1`;
   const isPlaceholder = calendlyUrl.includes("your-calendly-link");
@@ -95,6 +110,14 @@ export default function ConsultationPage() {
     function handleOutsideClick(event) {
       if (languageRef.current && !languageRef.current.contains(event.target)) {
         setIsLanguageOpen(false);
+      }
+
+      const clickedInsightsTrigger =
+        insightsTriggerRef.current && insightsTriggerRef.current.contains(event.target);
+      const clickedInsightsDropdown =
+        insightsDropdownRef.current && insightsDropdownRef.current.contains(event.target);
+      if (!clickedInsightsTrigger && !clickedInsightsDropdown) {
+        setIsInsightsOpen(false);
       }
     }
 
@@ -140,7 +163,16 @@ export default function ConsultationPage() {
 
           <nav className={styles.rightNav}>
             <Link href="/#expertise">{t.nav.first}</Link>
-            <Link href={insightsPath}>{t.nav.second}</Link>
+            <button
+              type="button"
+              className={styles.navInsightsButton}
+              ref={insightsTriggerRef}
+              onClick={() => setIsInsightsOpen((prevOpen) => !prevOpen)}
+              aria-expanded={isInsightsOpen}
+              aria-controls="consultation-insights-dropdown"
+            >
+              {t.nav.second}
+            </button>
             <div className={styles.languageControl} ref={languageRef}>
               <button
                 type="button"
@@ -214,7 +246,28 @@ export default function ConsultationPage() {
         </div>
       </header>
 
-      <section className={styles.topSection}>
+      <div
+        id="consultation-insights-dropdown"
+        ref={insightsDropdownRef}
+        className={`${styles.insightsDropdown} ${isInsightsOpen ? styles.insightsDropdownOpen : ""}`}
+      >
+        <div className={styles.shell}>
+          <div className={styles.insightsDropdownInner}>
+            <p className={styles.insightsDropdownTitle}>{t.insightsDropdown.title} &gt;</p>
+            <div className={styles.insightsDropdownLine} />
+            <div className={styles.insightsDropdownLinks}>
+              <Link href={laborMarketPath} onClick={() => setIsInsightsOpen(false)}>
+                {t.insightsDropdown.laborMarket} &gt;
+              </Link>
+              <Link href={employerBrandingPath} onClick={() => setIsInsightsOpen(false)}>
+                {t.insightsDropdown.employerBranding} &gt;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section className={`${styles.topSection} ${isInsightsOpen ? styles.topSectionShifted : ""}`}>
         <div className={styles.shell}>
           <h1>{t.title}</h1>
           <h2>{t.subtitle}</h2>

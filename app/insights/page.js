@@ -14,6 +14,11 @@ const translations = {
       first: "Usluge",
       second: "Naši Uvidi",
     },
+    insightsDropdown: {
+      title: "Naši Uvidi",
+      laborMarket: "Tržište rada",
+      employerBranding: "Employer branding",
+    },
     hero: {
       title: "ISTAKNUTI UVIDI I PERSPEKTIVE",
       subtitle: "HUNTWELL ADVISORY GROUP",
@@ -44,8 +49,13 @@ const translations = {
       first: "Services",
       second: "Our Insights",
     },
+    insightsDropdown: {
+      title: "Our Insights",
+      laborMarket: "Labor market",
+      employerBranding: "Employer branding",
+    },
     hero: {
-      title: "Featured Insights & Perspectives",
+      title: "FEATURED INSIGHTS & PERSPECTIVES",
       subtitle: "HUNTWELL ADVISORY GROUP",
       description:
         "Explore a selection of recent insights on trends shaping the future of business and society.",
@@ -71,9 +81,14 @@ const translations = {
 export default function InsightsPage() {
   const [language, setLanguage] = useState("sr");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isInsightsOpen, setIsInsightsOpen] = useState(false);
   const languageRef = useRef(null);
+  const insightsTriggerRef = useRef(null);
+  const insightsDropdownRef = useRef(null);
   const languageStorageKey = "hw_site_language";
   const t = translations[language];
+  const laborMarketPath = "/insights#labor-market";
+  const employerBrandingPath = "/insights#employer-branding";
 
   useEffect(() => {
     try {
@@ -99,6 +114,14 @@ export default function InsightsPage() {
       if (languageRef.current && !languageRef.current.contains(event.target)) {
         setIsLanguageOpen(false);
       }
+
+      const clickedInsightsTrigger =
+        insightsTriggerRef.current && insightsTriggerRef.current.contains(event.target);
+      const clickedInsightsDropdown =
+        insightsDropdownRef.current && insightsDropdownRef.current.contains(event.target);
+      if (!clickedInsightsTrigger && !clickedInsightsDropdown) {
+        setIsInsightsOpen(false);
+      }
     }
 
     document.addEventListener("mousedown", handleOutsideClick);
@@ -123,7 +146,16 @@ export default function InsightsPage() {
 
           <nav className={styles.rightNav}>
             <Link href="/#expertise">{t.nav.first}</Link>
-            <Link href="/insights">{t.nav.second}</Link>
+            <button
+              type="button"
+              className={styles.navInsightsButton}
+              ref={insightsTriggerRef}
+              onClick={() => setIsInsightsOpen((prevOpen) => !prevOpen)}
+              aria-expanded={isInsightsOpen}
+              aria-controls="insights-nav-dropdown"
+            >
+              {t.nav.second}
+            </button>
             <div className={styles.languageControl} ref={languageRef}>
               <button
                 type="button"
@@ -197,7 +229,28 @@ export default function InsightsPage() {
         </div>
       </header>
 
-      <section className={styles.topSection}>
+      <div
+        id="insights-nav-dropdown"
+        ref={insightsDropdownRef}
+        className={`${styles.insightsDropdown} ${isInsightsOpen ? styles.insightsDropdownOpen : ""}`}
+      >
+        <div className={styles.shell}>
+          <div className={styles.insightsDropdownInner}>
+            <p className={styles.insightsDropdownTitle}>{t.insightsDropdown.title} &gt;</p>
+            <div className={styles.insightsDropdownLine} />
+            <div className={styles.insightsDropdownLinks}>
+              <Link href={laborMarketPath} onClick={() => setIsInsightsOpen(false)}>
+                {t.insightsDropdown.laborMarket} &gt;
+              </Link>
+              <Link href={employerBrandingPath} onClick={() => setIsInsightsOpen(false)}>
+                {t.insightsDropdown.employerBranding} &gt;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section className={`${styles.topSection} ${isInsightsOpen ? styles.topSectionShifted : ""}`}>
         <div className={styles.shell}>
           <h1>{t.hero.title}</h1>
           <h2>{t.hero.subtitle}</h2>
