@@ -15,6 +15,11 @@ const translations = {
       second: "Naši Uvidi",
       start: "START",
     },
+    insightsDropdown: {
+      title: "Naši Uvidi",
+      laborMarket: "Tržište rada",
+      employerBranding: "Employer branding",
+    },
     hero: {
       strong: "Pristup",
       thinOne: "koji drugi",
@@ -134,6 +139,11 @@ const translations = {
       second: "Our Insights",
       start: "START",
     },
+    insightsDropdown: {
+      title: "Our Insights",
+      laborMarket: "Labor market",
+      employerBranding: "Employer branding",
+    },
     hero: {
       strong: "An Approach",
       thinOne: "Few",
@@ -233,12 +243,17 @@ const translations = {
 export default function Home() {
   const [language, setLanguage] = useState("sr");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isInsightsOpen, setIsInsightsOpen] = useState(false);
   const [isIntroVisible, setIsIntroVisible] = useState(false);
   const languageRef = useRef(null);
+  const insightsTriggerRef = useRef(null);
+  const insightsDropdownRef = useRef(null);
   const introSectionRef = useRef(null);
   const t = translations[language];
   const languageStorageKey = "hw_site_language";
   const insightsPath = "/insights";
+  const laborMarketPath = "/insights#labor-market";
+  const employerBrandingPath = "/insights#employer-branding";
 
   useEffect(() => {
     try {
@@ -261,6 +276,14 @@ export default function Home() {
     function handleOutsideClick(event) {
       if (languageRef.current && !languageRef.current.contains(event.target)) {
         setIsLanguageOpen(false);
+      }
+
+      const clickedInsightsTrigger =
+        insightsTriggerRef.current && insightsTriggerRef.current.contains(event.target);
+      const clickedInsightsDropdown =
+        insightsDropdownRef.current && insightsDropdownRef.current.contains(event.target);
+      if (!clickedInsightsTrigger && !clickedInsightsDropdown) {
+        setIsInsightsOpen(false);
       }
     }
 
@@ -335,7 +358,16 @@ export default function Home() {
 
           <nav className={styles.rightNav}>
             <a href="#">{t.nav.first}</a>
-            <Link href={insightsPath}>{t.nav.second}</Link>
+            <button
+              type="button"
+              className={styles.navInsightsButton}
+              ref={insightsTriggerRef}
+              onClick={() => setIsInsightsOpen((prevOpen) => !prevOpen)}
+              aria-expanded={isInsightsOpen}
+              aria-controls="home-insights-dropdown"
+            >
+              {t.nav.second}
+            </button>
             <div className={styles.languageControl} ref={languageRef}>
               <button
                 type="button"
@@ -410,7 +442,26 @@ export default function Home() {
           </nav>
         </header>
 
-        <section className={styles.content}>
+        <div
+          id="home-insights-dropdown"
+          ref={insightsDropdownRef}
+          className={`${styles.insightsDropdown} ${isInsightsOpen ? styles.insightsDropdownOpen : ""}`}
+        >
+          <div className={styles.insightsDropdownInner}>
+            <p className={styles.insightsDropdownTitle}>{t.insightsDropdown.title} &gt;</p>
+            <div className={styles.insightsDropdownLine} />
+            <div className={styles.insightsDropdownLinks}>
+              <Link href={laborMarketPath} onClick={() => setIsInsightsOpen(false)}>
+                {t.insightsDropdown.laborMarket} &gt;
+              </Link>
+              <Link href={employerBrandingPath} onClick={() => setIsInsightsOpen(false)}>
+                {t.insightsDropdown.employerBranding} &gt;
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <section className={`${styles.content} ${isInsightsOpen ? styles.contentShifted : ""}`}>
           <h1>
             <strong className={styles.heroBlack}>{t.hero.strong}</strong>{" "}
             <span className={styles.thinText}>{t.hero.thinOne}</span>{" "}
@@ -425,14 +476,16 @@ export default function Home() {
             <span className={styles.goldText}>{t.hero.gold}</span>
           </h1>
 
-          <div className={styles.actions}>
-            <Link href="/consultation" className={styles.actionPrimary}>
-              {t.hero.ctaPrimary}
-            </Link>
-            <a href="#" className={styles.actionSecondary}>
-              {t.hero.ctaSecondary}
-            </a>
-          </div>
+          {!isInsightsOpen && (
+            <div className={styles.actions}>
+              <Link href="/consultation" className={styles.actionPrimary}>
+                {t.hero.ctaPrimary}
+              </Link>
+              <a href="#" className={styles.actionSecondary}>
+                {t.hero.ctaSecondary}
+              </a>
+            </div>
+          )}
         </section>
       </section>
 
