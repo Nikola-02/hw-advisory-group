@@ -236,7 +236,7 @@ const translations = {
       headline: "Our latest thinking on the topics shaping the future of business and society",
     },
     closingQuote:
-      "We work with organizations that understand serious business results are not a matter of chance, but of a deliberate approach.",
+      "We work with organizations that understand that strong business performance is never accidental, but the result of a deliberate approach.",
   },
 };
 
@@ -481,7 +481,7 @@ export default function Home() {
               <Link href="/consultation" className={styles.actionPrimary}>
                 {t.hero.ctaPrimary}
               </Link>
-              <a href="#" className={styles.actionSecondary}>
+              <a href="#about" className={styles.actionSecondary}>
                 {t.hero.ctaSecondary}
               </a>
             </div>
