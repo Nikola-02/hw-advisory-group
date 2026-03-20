@@ -30,7 +30,7 @@
   font-size: 16px;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: none;
   position: relative;
   display: inline-block;
@@ -49,7 +49,7 @@
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 36px;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.95);
 }
@@ -59,7 +59,8 @@
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 400;
   text-transform: none;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
+  padding-inline: 6px;
   position: relative;
   display: inline-block;
 }
@@ -98,22 +99,31 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  background: rgba(5, 24, 40, 0.25);
-  color: #ffffff;
-  padding: 6px 10px;
-  font-size: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: #ffffff;
+  color: #1f1430;
+  padding: 8px 14px;
+  font-size: 16px;
+  font-weight: 500;
   letter-spacing: 0.02em;
-  border-radius: 0;
+  border-radius: 20px;
   text-transform: none;
   cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 4px 4px 0 rgba(0, 82, 178, 0.09);
+  transition: box-shadow 220ms ease, background-color 220ms ease;
+}
+
+.languageTrigger:hover {
+  box-shadow: inset 0 4px 4px 0 rgba(0, 82, 178, 0.09), 0 6px 14px rgba(4, 18, 34, 0.22);
 }
 
 .languageCaret {
   width: 9px;
   height: 9px;
-  border-right: 1.5px solid rgba(255, 255, 255, 0.9);
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-right: 1.5px solid #1f1430;
+  border-bottom: 1.5px solid #1f1430;
   transform: rotate(45deg) translateY(-2px);
 }
 
@@ -272,7 +282,7 @@
 
 .consentPopup p {
   font-size: 12px;
-  line-height: 1.45;
+  line-height: 1.25;
   color: rgba(242, 245, 250, 0.9);
 }
 

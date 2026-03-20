@@ -10,7 +10,7 @@ const translations = {
     optionSr: "SRP",
     optionEn: "ENG",
     nav: {
-      left: "O nama",
+      left: "O  nama",
       first: "Usluge",
       second: "Naši Uvidi",
       start: "START",

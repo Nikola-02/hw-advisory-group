@@ -14,7 +14,7 @@ const translations = {
     optionSr: "Srpski",
     optionEn: "Engleski",
     nav: {
-      left: "O nama",
+      left: "O  nama",
       first: "Usluge",
       second: "Naši Uvidi",
     },

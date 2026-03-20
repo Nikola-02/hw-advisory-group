@@ -11,6 +11,7 @@ body {
   color: #ffffff;
   background: #0a5f8a;
   font-family: "Roboto", sans-serif;
+  line-height: 1.25;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
