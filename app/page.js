@@ -161,7 +161,6 @@ export default function Home() {
         setLanguage(storedLanguage);
       }
     } catch {
-      // Ignore storage issues and keep default Serbian.
     }
   }, []);
 
@@ -169,7 +168,6 @@ export default function Home() {
     try {
       window.localStorage.setItem(languageStorageKey, language);
     } catch {
-      // Ignore storage issues.
     }
   }, [language]);
 
@@ -219,13 +217,6 @@ export default function Home() {
                 aria-label={t.langLabel}
                 aria-expanded={isLanguageOpen}
               >
-                <span
-                  className={`fi ${language === "sr" ? "fi-rs" : "fi-gb"} ${
-                    styles.languageFlag
-                  }`}
-                  aria-hidden="true"
-                />
-                <span>{language === "sr" ? t.optionSr : t.optionEn}</span>
                 {isLanguageOpen ? (
                   <svg
                     className={styles.languageChevron}
@@ -259,6 +250,7 @@ export default function Home() {
                     />
                   </svg>
                 )}
+                <span>{language === "sr" ? t.optionSr : t.optionEn}</span>
               </button>
 
               {isLanguageOpen && (
@@ -271,7 +263,6 @@ export default function Home() {
                       setIsLanguageOpen(false);
                     }}
                   >
-                    <span className={`fi fi-rs ${styles.languageFlag}`} aria-hidden="true" />
                     <span>{t.optionSr}</span>
                   </button>
                   <button
@@ -282,7 +273,6 @@ export default function Home() {
                       setIsLanguageOpen(false);
                     }}
                   >
-                    <span className={`fi fi-gb ${styles.languageFlag}`} aria-hidden="true" />
                     <span>{t.optionEn}</span>
                   </button>
                 </div>

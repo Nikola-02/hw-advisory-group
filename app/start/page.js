@@ -142,14 +142,8 @@ export default function StartPage() {
                 aria-label={t.langLabel}
                 aria-expanded={isLanguageOpen}
               >
-                <span
-                  className={`fi ${language === "sr" ? "fi-rs" : "fi-gb"} ${
-                    styles.languageFlag
-                  }`}
-                  aria-hidden="true"
-                />
-                <span>{language === "sr" ? t.optionSr : t.optionEn}</span>
                 <span className={styles.languageCaret} aria-hidden="true" />
+                <span>{language === "sr" ? t.optionSr : t.optionEn}</span>
               </button>
 
               {isLanguageOpen && (
@@ -162,7 +156,6 @@ export default function StartPage() {
                       setIsLanguageOpen(false);
                     }}
                   >
-                    <span className={`fi fi-rs ${styles.languageFlag}`} aria-hidden="true" />
                     <span>{t.optionSr}</span>
                   </button>
                   <button
@@ -173,7 +166,6 @@ export default function StartPage() {
                       setIsLanguageOpen(false);
                     }}
                   >
-                    <span className={`fi fi-gb ${styles.languageFlag}`} aria-hidden="true" />
                     <span>{t.optionEn}</span>
                   </button>
                 </div>
