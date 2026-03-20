@@ -70,6 +70,10 @@ const translations = {
         ],
       },
     ],
+    preFooter: {
+      eyebrow: "Uvidi i perspektive HuntWell Advisory Group",
+      headline: "Naša najnovija razmišljanja o temama koje oblikuju budućnost poslovanja i društva",
+    },
   },
   en: {
     langLabel: "Language",
@@ -136,6 +140,10 @@ const translations = {
         ],
       },
     ],
+    preFooter: {
+      eyebrow: "HuntWell Advisory Group Insights & Perspectives",
+      headline: "Our latest thinking on the topics shaping the future of business and society",
+    },
   },
 };
 
@@ -309,7 +317,7 @@ export default function Home() {
         </section>
       </section>
 
-      <section className={styles.detailsArea}>
+      <section id="our-insights" className={styles.detailsArea}>
         <div className={styles.detailsInner}>
           <div className={styles.divider} />
 
@@ -342,6 +350,25 @@ export default function Home() {
               ))}
             </div>
           </section>
+        </div>
+      </section>
+
+      <section className={styles.preFooterSection}>
+        <div className={styles.preFooterContent}>
+          <p className={styles.preFooterEyebrow}>{t.preFooter.eyebrow}</p>
+          <Link href="#our-insights" className={styles.preFooterLink}>
+            {t.preFooter.headline}
+          </Link>
+          <Link href="#our-insights" className={styles.preFooterArrow} aria-label={t.nav.second}>
+            &gt;
+          </Link>
+        </div>
+        <div className={styles.preFooterImageWrap} aria-hidden="true">
+          <img
+            src="/pre_footer_section_mountain_hw.jpg"
+            alt=""
+            className={styles.preFooterImage}
+          />
         </div>
       </section>
 
