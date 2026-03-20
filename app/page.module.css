@@ -455,6 +455,10 @@
   padding-top: 114px;
 }
 
+.detailsInner > .divider:first-child + .infoSection {
+  padding-bottom: 114px;
+}
+
 .detailsInner > .infoSection + .divider + .infoSection {
   padding-top: 114px;
 }
@@ -924,6 +928,11 @@
   }
 
   .detailsInner > .divider:first-child + .infoSection {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  .detailsInner > .infoSection + .divider + .infoSection {
     padding-top: 44px;
   }
 
