@@ -1,47 +1,45 @@
 .page {
   min-height: 100vh;
-  background: #f5f7fa;
-  color: #1f2b3a;
+  background: #ffffff;
+  color: #1c2c5a;
 }
 
-.topBar {
-  background: #0b2a45;
-  padding: 28px max(56px, 10vw);
-}
-
-.container {
-  width: min(90%, calc(100% - 240px));
-  margin: 42px auto 0;
+.shell {
+  width: calc(100% - (2 * max(56px, 10vw)));
+  margin: 0 auto;
 }
 
 .header {
-  position: relative;
-  z-index: 2;
+  padding: 28px 0;
+}
+
+.header .shell {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 16px;
-  margin-bottom: 26px;
 }
 
 .leftLink {
   justify-self: start;
-  color: rgba(255, 255, 255, 0.95);
   font-size: 16px;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 400;
   letter-spacing: 0;
-  text-transform: none;
+  color: #1c2c5a;
   position: relative;
   display: inline-block;
 }
 
 .logoWrap {
   justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
-  height: 54px;
+  height: 68px;
   width: auto;
 }
 
@@ -51,18 +49,18 @@
   align-items: center;
   gap: 36px;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.95);
+  color: #1c2c5a;
 }
 
 .rightNav > a {
   font-size: 16px;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 400;
-  text-transform: none;
   letter-spacing: 0;
-  padding-inline: 6px;
+  color: #1c2c5a;
   position: relative;
   display: inline-block;
+  padding-inline: 6px;
 }
 
 .leftLink::after,
@@ -73,7 +71,7 @@
   bottom: -1px;
   width: 100%;
   height: 0.3px;
-  background: currentColor;
+  background: #1c2c5a;
   opacity: 0;
   transition: opacity 200ms ease-out;
 }
@@ -88,20 +86,13 @@
   display: inline-flex;
 }
 
-.languageFlag {
-  width: 16px;
-  height: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  display: inline-block;
-}
-
 .languageTrigger {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid #ffffff;
-  background: transparent;
-  color: #ffffff;
+  border: 1px solid #1c2c5a;
+  background: #ffffff;
+  color: #1c2c5a;
   padding: 8px 14px;
   font-size: 16px;
   font-weight: 500;
@@ -123,7 +114,7 @@
   width: 12px;
   height: 8px;
   display: block;
-  color: #ffffff;
+  color: #1c2c5a;
   flex-shrink: 0;
 }
 
@@ -153,51 +144,84 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 180ms ease;
 }
 
 .languageOption:hover {
   background: #f2f5f8;
 }
 
-.container h1 {
-  font-size: clamp(32px, 4vw, 52px);
-  font-family: inherit;
-  letter-spacing: 0.01em;
-  margin-bottom: 10px;
+.topSection {
+  padding: 34px 0 0;
 }
 
-.container p {
-  font-size: 18px;
-  margin-bottom: 18px;
+.topSection h1 {
+  font-size: 40px;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: #1c2c5a;
+}
+
+.topSection h2 {
+  margin-top: 0;
+  font-size: 40px;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #1c2c5a;
+}
+
+.topSection p {
+  margin-top: 24px;
+  max-width: 920px;
+  font-size: 24px;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #1c2c5a;
+}
+
+.sectionDivider {
+  display: none;
 }
 
 .notice {
-  color: #8a5b1d;
-  background: #fff4e2;
-  border: 1px solid #f1d6aa;
-  padding: 10px 12px;
+  margin-top: 28px;
+  max-width: 920px;
+  color: #1c2c5a;
+  background: #ffffff;
+  border: 0.3px solid rgba(28, 44, 90, 0.28);
+  padding: 12px 14px;
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 .embedWrap {
-  margin-top: 20px;
-  border: 1px solid #d5dce4;
+  margin-top: 56px;
+  margin-bottom: 55px;
+  width: 100%;
+  border: 0.3px solid rgba(28, 44, 90, 0.28);
+  border-radius: 0;
   background: #ffffff;
+  overflow: hidden;
 }
 
 .embed {
   width: 100%;
-  min-height: 680px;
+  height: 760px;
+  background: #ffffff;
   border: 0;
 }
 
 .footer {
   background: #ffffff;
   color: #1c2c5a;
-  margin-top: 56px;
 }
 
 .footerInner {
-  width: min(90%, calc(100% - 240px));
+  width: calc(100% - (2 * max(56px, 10vw)));
   margin: 0 auto;
   padding: 96px 0;
   display: grid;
@@ -290,6 +314,7 @@
 }
 
 .consentPopup p {
+  margin-top: 0;
   font-size: 12px;
   line-height: 1.25;
   color: rgba(242, 245, 250, 0.9);
@@ -307,42 +332,55 @@
   cursor: pointer;
 }
 
-@media (max-width: 640px) {
-  .header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 10px;
+@media (max-width: 900px) {
+  .shell {
+    width: calc(100% - 48px);
   }
 
-  .logoWrap {
-    width: 100%;
-    text-align: center;
-    order: 0;
+  .header .shell {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
   }
 
-  .leftLink {
-    order: 1;
+  .leftLink,
+  .logoWrap,
+  .rightNav {
+    justify-self: center;
   }
 
   .rightNav {
-    order: 2;
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
+    gap: 16px;
   }
 
-  .container {
-    width: min(1100px, calc(100% - 24px));
-    margin-top: 28px;
+  .topSection h1,
+  .topSection h2 {
+    font-size: 32px;
+  }
+
+  .topSection p {
+    font-size: 20px;
+  }
+
+  .sectionDivider {
+    display: none;
+  }
+
+  .embedWrap {
+    margin-top: 40px;
+    margin-bottom: 55px;
+  }
+
+  .embed {
+    height: 680px;
   }
 
   .footerInner {
-    width: calc(100% - 32px);
+    width: calc(100% - 48px);
     padding: 56px 0;
     grid-template-columns: 1fr;
-    grid-template-rows: none;
-    row-gap: 18px;
+    grid-template-rows: auto;
+    row-gap: 20px;
+    column-gap: 0;
   }
 
   .footerLogoWrap,
@@ -351,12 +389,32 @@
   .footerSocial,
   .footerRights {
     grid-column: 1;
-    justify-self: start;
     grid-row: auto;
+    justify-self: center;
+    text-align: center;
   }
 
   .footerRights {
-    font-size: 14px;
+    margin-top: 8px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: calc(100% - 24px);
+  }
+
+  .rightNav {
+    gap: 10px;
+  }
+
+  .topSection {
+    padding-top: 20px;
+  }
+
+  .embed {
+    height: 620px;
   }
 
   .consentPopup {

@@ -5,7 +5,7 @@
 }
 
 .shell {
-  width: min(90%, calc(100% - 240px));
+  width: calc(100% - (2 * max(56px, 10vw)));
   margin: 0 auto;
 }
 
@@ -307,7 +307,7 @@
 }
 
 .footerInner {
-  width: min(90%, calc(100% - 240px));
+  width: calc(100% - (2 * max(56px, 10vw)));
   margin: 0 auto;
   padding: 96px 0;
   display: grid;

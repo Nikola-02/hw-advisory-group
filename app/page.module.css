@@ -278,7 +278,7 @@
 }
 
 .introInner {
-  width: min(90%, calc(100% - 240px));
+  width: calc(100% - (2 * max(56px, 10vw)));
   margin: 0 auto;
   padding: 230px 0 185px;
 }
@@ -322,7 +322,7 @@
 }
 
 .detailsInner {
-  width: min(90%, calc(100% - 240px));
+  width: calc(100% - (2 * max(56px, 10vw)));
   margin: 0 auto;
 }
 
@@ -401,7 +401,7 @@
 }
 
 .closingQuoteInner {
-  width: min(90%, calc(100% - 240px));
+  width: calc(100% - (2 * max(56px, 10vw)));
   margin: 0 auto;
   border-top: 0.3px solid #1c2c5a;
   border-bottom: 0.3px solid #1c2c5a;
@@ -433,7 +433,7 @@
   padding-top: 60px;
   padding-right: 56px;
   padding-bottom: 60px;
-  padding-left: max(56px, calc((100vw - min(90vw, calc(100vw - 240px))) / 2));
+  padding-left: max(56px, 10vw);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -514,7 +514,7 @@
 }
 
 .footerInner {
-  width: min(90%, calc(100% - 240px));
+  width: calc(100% - (2 * max(56px, 10vw)));
   margin: 0 auto;
   padding: 96px 0;
   display: grid;

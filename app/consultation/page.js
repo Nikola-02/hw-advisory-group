@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import styles from "./start.module.css";
+import styles from "./consultation.module.css";
 
 const calendlyUrl =
   process.env.NEXT_PUBLIC_CALENDLY_URL ||
@@ -11,16 +11,17 @@ const calendlyUrl =
 const translations = {
   sr: {
     langLabel: "Jezik",
-    optionSr: "Srpski",
-    optionEn: "Engleski",
+    optionSr: "SRP",
+    optionEn: "ENG",
     nav: {
       left: "O  nama",
       first: "Usluge",
       second: "Naši Uvidi",
     },
-    title: "Zakazivanje konsultacija",
+    title: "ZAKAŽITE KONSULTACIJE",
+    subtitle: "HUNTWELL ADVISORY GROUP",
     description:
-      "Izaberite termin koji vam odgovara i automatski zakazite poziv preko Calendly platforme.",
+      "Izaberite termin koji vam odgovara i automatski zakažite poziv preko Calendly platforme.",
     consent: {
       title: "Napomena o zakazivanju",
       text: "Nastavkom i unosom podataka za zakazivanje pristajete na uslove koriscenja Calendly platforme. Podaci za rezervaciju unose se direktno u Calendly.",
@@ -34,14 +35,15 @@ const translations = {
   },
   en: {
     langLabel: "Language",
-    optionSr: "Serbian",
-    optionEn: "English",
+    optionSr: "SRB",
+    optionEn: "ENG",
     nav: {
       left: "About",
       first: "Services",
       second: "Our Insights",
     },
-    title: "Schedule a consultation",
+    title: "BOOK A CONSULTATION",
+    subtitle: "HUNTWELL ADVISORY GROUP",
     description:
       "Choose a time slot that works for you and schedule a call automatically through Calendly.",
     consent: {
@@ -57,20 +59,17 @@ const translations = {
   },
 };
 
-export default function StartPage() {
+export default function ConsultationPage() {
   const [language, setLanguage] = useState("sr");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [showConsentPopup, setShowConsentPopup] = useState(false);
   const languageRef = useRef(null);
   const t = translations[language];
-  const consentStorageKey = "lw_calendly_notice_ack";
+  const consentStorageKey = "hw_calendly_notice_ack";
   const languageStorageKey = "hw_site_language";
   const insightsPath = "/insights";
 
-  const embedUrl = `${calendlyUrl}${
-    calendlyUrl.includes("?") ? "&" : "?"
-  }hide_gdpr_banner=1`;
-
+  const embedUrl = `${calendlyUrl}${calendlyUrl.includes("?") ? "&" : "?"}hide_gdpr_banner=1`;
   const isPlaceholder = calendlyUrl.includes("your-calendly-link");
 
   useEffect(() => {
@@ -125,16 +124,23 @@ export default function StartPage() {
 
   return (
     <main className={styles.page}>
-      <section className={styles.topBar}>
-        <header className={styles.header}>
+      <header className={styles.header}>
+        <div className={styles.shell}>
           <Link href="/" className={styles.leftLink}>
             {t.nav.left}
           </Link>
-          <Link href="/" className={styles.logoWrap} aria-label="LW pocetna">
-            <img src="/lw-logo.png" alt="LW logo" className={styles.logo} />
+
+          <Link href="/" className={styles.logoWrap} aria-label="HuntWell Advisory Group">
+            <img
+              src="/hw_advisory_group_blue_logo.png"
+              alt="HuntWell Advisory Group logo"
+              className={styles.logo}
+            />
           </Link>
 
           <nav className={styles.rightNav}>
+            <Link href="/">{t.nav.first}</Link>
+            <Link href={insightsPath}>{t.nav.second}</Link>
             <div className={styles.languageControl} ref={languageRef}>
               <button
                 type="button"
@@ -204,28 +210,26 @@ export default function StartPage() {
                 </div>
               )}
             </div>
-            <Link href="/">{t.nav.first}</Link>
-            <Link href={insightsPath}>{t.nav.second}</Link>
           </nav>
-        </header>
-      </section>
+        </div>
+      </header>
 
-      <section className={styles.container}>
-        <h1>{t.title}</h1>
-        <p>{t.description}</p>
+      <section className={styles.topSection}>
+        <div className={styles.shell}>
+          <h1>{t.title}</h1>
+          <h2>{t.subtitle}</h2>
+          <p>{t.description}</p>
+          <div className={styles.sectionDivider} />
 
-        {isPlaceholder && (
-          <p className={styles.notice}>
-            {t.notice} <code>NEXT_PUBLIC_CALENDLY_URL</code> {t.noticeSuffix}
-          </p>
-        )}
+          {isPlaceholder && (
+            <p className={styles.notice}>
+              {t.notice} <code>NEXT_PUBLIC_CALENDLY_URL</code> {t.noticeSuffix}
+            </p>
+          )}
 
-        <div className={styles.embedWrap}>
-          <iframe
-            title="Calendly booking"
-            src={embedUrl}
-            className={styles.embed}
-          />
+          <div className={styles.embedWrap}>
+            <iframe title="Calendly booking" src={embedUrl} className={styles.embed} />
+          </div>
         </div>
       </section>
 
@@ -270,11 +274,7 @@ export default function StartPage() {
         <aside className={styles.consentPopup} role="dialog" aria-live="polite">
           <h3>{t.consent.title}</h3>
           <p>{t.consent.text}</p>
-          <button
-            type="button"
-            className={styles.consentButton}
-            onClick={handleConsentAccept}
-          >
+          <button type="button" className={styles.consentButton} onClick={handleConsentAccept}>
             {t.consent.button}
           </button>
         </aside>

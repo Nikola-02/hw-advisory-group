@@ -426,7 +426,7 @@ export default function Home() {
           </h1>
 
           <div className={styles.actions}>
-            <Link href="/start" className={styles.actionPrimary}>
+            <Link href="/consultation" className={styles.actionPrimary}>
               {t.hero.ctaPrimary}
             </Link>
             <a href="#" className={styles.actionSecondary}>
