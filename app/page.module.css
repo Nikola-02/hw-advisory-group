@@ -91,7 +91,7 @@
   left: 0;
   bottom: -1px;
   width: 100%;
-  height: 0.4px;
+  height: 0.3px;
   background: currentColor;
   opacity: 0;
   transition: opacity 200ms ease-out;
@@ -273,10 +273,51 @@
   -webkit-backdrop-filter: blur(44px) saturate(150%);
 }
 
+.introSection {
+  background: #ffffff;
+}
+
+.introInner {
+  width: min(90%, calc(100% - 240px));
+  margin: 0 auto;
+  padding: 230px 0 185px;
+}
+
+.introText {
+  max-width: none;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: #162652;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1200ms ease-out, transform 1200ms ease-out;
+}
+
+.introTextVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.introRegular {
+  font-weight: 400;
+  font-style: normal;
+}
+
+.introItalic {
+  font-weight: 400;
+  font-style: italic;
+}
+
 .detailsArea {
   background: #ffffff;
   color: #21344a;
-  padding: 120px 0 72px;
+  padding: 0 0 72px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -286,7 +327,7 @@
 }
 
 .divider {
-  height: 0.4px;
+  height: 0.3px;
   background: #1c2c5a;
 }
 
@@ -294,8 +335,8 @@
   padding: 42px 0;
 }
 
-.detailsInner > .divider:first-child + .infoSection {
-  padding-top: 76px;
+.detailsInner > .divider + .infoSection {
+  padding-top: 190px;
 }
 
 .infoSection h2 {
@@ -306,7 +347,8 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #1c2c5a;
-  margin-bottom: 24px;
+  margin-top: 0;
+  margin-bottom: 40px;
 }
 
 .goldLead {
@@ -324,7 +366,7 @@
 
 .infoList {
   display: grid;
-  gap: 42px;
+  gap: 100px;
   padding-left: 26px;
 }
 
@@ -361,8 +403,8 @@
 .closingQuoteInner {
   width: min(90%, calc(100% - 240px));
   margin: 0 auto;
-  border-top: 0.4px solid #1c2c5a;
-  border-bottom: 0.4px solid #1c2c5a;
+  border-top: 0.3px solid #1c2c5a;
+  border-bottom: 0.3px solid #1c2c5a;
   padding: 240px 28px;
   text-align: center;
 }
@@ -381,18 +423,21 @@
 .preFooterSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 350px;
+  min-height: 0;
   margin-top: 0;
 }
 
 .preFooterContent {
   background: #1d512f;
   color: #ffffff;
-  padding: 26px 56px;
+  padding-top: 60px;
+  padding-right: 56px;
+  padding-bottom: 60px;
+  padding-left: max(56px, calc((100vw - min(90vw, calc(100vw - 240px))) / 2));
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 22px;
+  justify-content: flex-start;
+  gap: 0;
   transition: background-color 260ms ease-out, color 260ms ease-out;
 }
 
@@ -406,6 +451,7 @@
 }
 
 .preFooterLink {
+  margin-top: 24px;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-size: 36px;
   font-weight: 400;
@@ -421,7 +467,7 @@
   display: inline-block;
   width: fit-content;
   padding: 0;
-  margin: 0;
+  margin: 40px 0 0;
   font-size: 148px;
   font-weight: 700;
   line-height: 0.72;
@@ -432,7 +478,9 @@
 }
 
 .preFooterImageWrap {
-  min-height: 350px;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .preFooterImage {
@@ -441,6 +489,8 @@
   object-fit: cover;
   object-position: center;
   display: block;
+  position: absolute;
+  inset: 0;
 }
 
 .preFooterContent:hover {
@@ -596,6 +646,11 @@
     width: calc(100% - 48px);
   }
 
+  .introInner {
+    width: calc(100% - 48px);
+    padding: 170px 0 130px;
+  }
+
   .closingQuoteInner {
     width: calc(100% - 48px);
     padding: 180px 24px;
@@ -608,6 +663,10 @@
 
   .preFooterImageWrap {
     min-height: 280px;
+  }
+
+  .preFooterContent {
+    padding: 50px 24px;
   }
 
   .footerInner {
@@ -676,7 +735,16 @@
   }
 
   .detailsArea {
-    padding-top: 72px;
+    padding-top: 0;
+  }
+
+  .introInner {
+    width: calc(100% - 24px);
+    padding: 120px 0 90px;
+  }
+
+  .introText {
+    font-size: 20px;
   }
 
   .infoSection {
@@ -727,7 +795,7 @@
 
   .preFooterContent {
     padding: 22px 24px;
-    gap: 16px;
+    gap: 0;
   }
 
   .preFooterEyebrow {

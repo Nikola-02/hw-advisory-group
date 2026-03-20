@@ -109,6 +109,14 @@ const translations = {
         ],
       },
     ],
+    introStatementParts: [
+      { text: "HuntWell Advisory Group", tone: "regular" },
+      { text: " pruža " },
+      { text: "strateška", tone: "italic" },
+      {
+        text: " rešenja koja omogućavaju organizacijama da precizno prepoznaju ključne profesionalce i talente, pozicioniraju se sa autoritetom na tržištu i ostave trajni utisak kroz inteligentno, ciljano i ekskluzivno poslovno delovanje.",
+      },
+    ],
     preFooter: {
       eyebrow: "Uvidi i perspektive HuntWell Advisory Group",
       headline: "Naša najnovija razmišljanja o temama koje oblikuju budućnost poslovanja i društva",
@@ -205,6 +213,14 @@ const translations = {
         ],
       },
     ],
+    introStatementParts: [
+      { text: "Huntwell Advisory Group", tone: "regular" },
+      { text: " provides " },
+      { text: "strategic", tone: "italic" },
+      {
+        text: " insight that enables organizations to identify exceptional professionals and critical talent, strengthen their position in the labor market, and create lasting impact through precise and focused market positioning.",
+      },
+    ],
     preFooter: {
       eyebrow: "HuntWell Advisory Group Insights & Perspectives",
       headline: "Our latest thinking on the topics shaping the future of business and society",
@@ -217,7 +233,9 @@ const translations = {
 export default function Home() {
   const [language, setLanguage] = useState("sr");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isIntroVisible, setIsIntroVisible] = useState(false);
   const languageRef = useRef(null);
+  const introSectionRef = useRef(null);
   const t = translations[language];
   const languageStorageKey = "hw_site_language";
   const insightsPath = "/insights";
@@ -250,12 +268,47 @@ export default function Home() {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
+  useEffect(() => {
+    const section = introSectionRef.current;
+    if (!section) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntroVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.22 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   function renderTextParts(parts) {
     return parts.map((part, index) => (
       <span key={`${part.text}-${index}`} className={part.emphasis ? styles.infoBodyEmphasis : ""}>
         {part.text}
       </span>
     ));
+  }
+
+  function renderIntroStatement(parts) {
+    return parts.map((part, index) => {
+      let className = "";
+      if (part.tone === "regular") {
+        className = styles.introRegular;
+      } else if (part.tone === "italic") {
+        className = styles.introItalic;
+      }
+
+      return (
+        <span key={`${part.text}-${index}`} className={className}>
+          {part.text}
+        </span>
+      );
+    });
   }
 
   return (
@@ -381,6 +434,14 @@ export default function Home() {
             </a>
           </div>
         </section>
+      </section>
+
+      <section className={styles.introSection} ref={introSectionRef}>
+        <div className={styles.introInner}>
+          <p className={`${styles.introText} ${isIntroVisible ? styles.introTextVisible : ""}`}>
+            {renderIntroStatement(t.introStatementParts)}
+          </p>
+        </div>
       </section>
 
       <section id="our-insights" className={styles.detailsArea}>
