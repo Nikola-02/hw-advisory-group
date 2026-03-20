@@ -7,12 +7,12 @@ import styles from "./page.module.css";
 const translations = {
   sr: {
     langLabel: "Jezik",
-    optionSr: "Srpski",
-    optionEn: "Engleski",
+    optionSr: "SRP",
+    optionEn: "ENG",
     nav: {
-      left: "O NAMA",
-      first: "USLUGE",
-      second: "TERENI",
+      left: "O nama",
+      first: "Usluge",
+      second: "Naši Uvidi",
       start: "START",
     },
     hero: {
@@ -21,8 +21,8 @@ const translations = {
       boldItalic: "NE MOGU",
       thinTwo: "DA",
       gold: "PONUDE",
-      ctaPrimary: "ZAKAZI TERMIN",
-      ctaSecondary: "SAZNAJ VISE",
+      ctaPrimary: "Zakaži konsultacije",
+      ctaSecondary: "Saznaj Više",
     },
     consent: {
       title: "Napomena o zakazivanju",
@@ -70,8 +70,8 @@ const translations = {
   },
   en: {
     langLabel: "Language",
-    optionSr: "Serbian",
-    optionEn: "English",
+    optionSr: "SRB",
+    optionEn: "ENG",
     nav: {
       left: "ABOUT",
       first: "SERVICES",
@@ -175,20 +175,34 @@ export default function Home() {
   return (
     <main>
       <section className={styles.hero}>
+        <img
+          src="/hero_section_golf_hw.jpg"
+          alt=""
+          aria-hidden="true"
+          className={styles.heroImage}
+        />
         <header className={styles.header}>
           <a href="#" className={styles.leftLink}>
             {t.nav.left}
           </a>
 
-          <a href="#" className={styles.logoWrap} aria-label="LW">
-            <img src="/lw-logo.png" alt="LW logo" className={styles.logo} />
+          <a href="#" className={styles.logoWrap} aria-label="HuntWell Advisory Group">
+            <img
+              src="/hw_advisory_group_white_logo.png"
+              alt="HuntWell Advisory Group logo"
+              className={styles.logo}
+            />
           </a>
 
           <nav className={styles.rightNav}>
+            <a href="#">{t.nav.first}</a>
+            <a href="#">{t.nav.second}</a>
             <div className={styles.languageControl} ref={languageRef}>
               <button
                 type="button"
-                className={styles.languageTrigger}
+                className={`${styles.languageTrigger} ${
+                  isLanguageOpen ? styles.languageTriggerOpen : ""
+                }`}
                 onClick={() => setIsLanguageOpen((prevOpen) => !prevOpen)}
                 aria-label={t.langLabel}
                 aria-expanded={isLanguageOpen}
@@ -200,7 +214,39 @@ export default function Home() {
                   aria-hidden="true"
                 />
                 <span>{language === "sr" ? t.optionSr : t.optionEn}</span>
-                <span className={styles.languageCaret} aria-hidden="true" />
+                {isLanguageOpen ? (
+                  <svg
+                    className={styles.languageChevron}
+                    viewBox="0 0 10 6"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M1 5L5 1L9 5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className={styles.languageChevron}
+                    viewBox="0 0 10 6"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M1 1L5 5L9 1"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
               </button>
 
               {isLanguageOpen && (
@@ -230,35 +276,15 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <a href="#">{t.nav.first}</a>
-            <a href="#">{t.nav.second}</a>
-            <Link href="/start" className={styles.pillLink}>
-              <svg
-                className={styles.pillIcon}
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  d="M10 8.5L14.5 12L10 15.5V8.5Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M12 2.5C6.76 2.5 2.5 6.76 2.5 12C2.5 17.24 6.76 21.5 12 21.5C17.24 21.5 21.5 17.24 21.5 12C21.5 6.76 17.24 2.5 12 2.5ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z"
-                  fill="currentColor"
-                />
-              </svg>
-              {t.nav.start}
-            </Link>
           </nav>
         </header>
 
         <section className={styles.content}>
           <h1>
-            <strong>{t.hero.strong}</strong>{" "}
+            <strong className={styles.heroBlack}>{t.hero.strong}</strong>{" "}
             <span className={styles.thinText}>{t.hero.thinOne}</span>{" "}
             <em>
-              <strong>{t.hero.boldItalic}</strong>
+              <strong className={styles.heroBlackItalic}>{t.hero.boldItalic}</strong>
             </em>{" "}
             <span className={styles.thinText}>{t.hero.thinTwo}</span>{" "}
             <span className={styles.goldText}>{t.hero.gold}</span>

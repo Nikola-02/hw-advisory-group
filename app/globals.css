@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css");
 
 html,
@@ -10,7 +9,7 @@ body {
 body {
   color: #ffffff;
   background: #0a5f8a;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

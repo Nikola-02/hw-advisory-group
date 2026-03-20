@@ -14,9 +14,9 @@ const translations = {
     optionSr: "Srpski",
     optionEn: "Engleski",
     nav: {
-      left: "O NAMA",
-      first: "USLUGE",
-      second: "TERENI",
+      left: "O nama",
+      first: "Usluge",
+      second: "Naši Uvidi",
     },
     title: "Zakazivanje konsultacija",
     description:
