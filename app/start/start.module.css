@@ -99,9 +99,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: #ffffff;
-  color: #1f1430;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
   padding: 8px 14px;
   font-size: 16px;
   font-weight: 500;
@@ -122,8 +122,8 @@
 .languageCaret {
   width: 9px;
   height: 9px;
-  border-right: 1.5px solid #1f1430;
-  border-bottom: 1.5px solid #1f1430;
+  border-right: 1.5px solid #ffffff;
+  border-bottom: 1.5px solid #ffffff;
   transform: rotate(45deg) translateY(-2px);
 }
 
