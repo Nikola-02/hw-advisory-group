@@ -183,13 +183,13 @@
 .footerInner {
   width: calc(100% - 112px);
   margin: 0 auto;
-  padding: 56px 0 32px;
+  padding: 96px 0;
   display: grid;
   grid-template-columns: auto 180px 1.2fr 1fr auto;
   grid-template-rows: auto auto;
   column-gap: 96px;
   row-gap: 34px;
-  align-items: start;
+  align-items: center;
 }
 
 .footerLogoWrap {
@@ -315,7 +315,7 @@
 
   .footerInner {
     width: calc(100% - 32px);
-    padding: 42px 0 24px;
+    padding: 56px 0;
     grid-template-columns: 1fr;
     grid-template-rows: none;
     row-gap: 18px;
