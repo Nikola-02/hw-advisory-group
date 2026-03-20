@@ -223,8 +223,11 @@
 }
 
 .footerNav a {
+  display: inline-flex;
+  width: fit-content;
+  justify-self: start;
   font-size: 16px;
-  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   color: #1c2c5a;
 }
@@ -237,6 +240,9 @@
 }
 
 .footerSocial a {
+  display: inline-flex;
+  width: fit-content;
+  justify-self: start;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.06em;

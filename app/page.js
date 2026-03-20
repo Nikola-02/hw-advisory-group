@@ -34,38 +34,77 @@ const translations = {
     },
     sections: [
       {
-        title: "NASA EKSPERTIZA",
-        lead: "Fokus je usmeren ka tome sta pravi realnu razliku.",
+        title: "NAŠA EKSPERTIZA",
+        lead: "Delujemo u oblastima tržišta rada i pozicioniranja poslodavaca.",
         items: [
           {
-            title: "IDENTIFIKACIJA TALENTA",
-            text: "Analizom sposobnosti i potencijala precizno izdvajamo profile sa najvecim prostorom za rast.",
+            title: "Identifikacija talenata",
+            textParts: [
+              { text: "Analiziramo i " },
+              { text: "prepoznajemo", emphasis: true },
+              {
+                text: " ključne profesionalne kapacitete na tržištu, sagledavajući gde njihov potencijal ostvaruje najveću stratešku vrednost u odnosu na ciljeve organizacije.",
+              },
+            ],
           },
           {
-            title: "IDENTIFIKACIJA PROFESIONALNIH PROFILA",
-            text: "Jasno mapiramo potrebne kompetencije i uskladjujemo ih sa ciljevima tima i projekta.",
+            title: "IDENTIFIKACIJA DEFICITARNIH PROFILA",
+            textParts: [
+              {
+                text: "U svakoj industriji postoje profili čija je vrednost visoka, a dostupnost ograničena. Upravo takve profile ",
+              },
+              { text: "pronalazimo", emphasis: true },
+              { text: "." },
+            ],
           },
           {
             title: "RAZVOJ IDENTITETA POSLODAVCA",
-            text: "Gradimo doslednu komunikaciju vrednosti koja privlaci i zadrzava relevantne kandidate.",
+            textParts: [
+              {
+                text: "Identitet poslodavca određuje kako organizacija zauzima svoje mesto na tržištu rada. Mi ga oblikujemo kao jasan i prepoznatljiv ",
+              },
+              { text: "brend", emphasis: true },
+              { text: " poslodavca." },
+            ],
           },
           {
             title: "ARHITEKTURA OGLASA",
-            text: "Pisemo oglase koji su jasni, prepoznatljivi i usmereni na pravu publiku.",
+            textParts: [
+              {
+                text: "Oblikujemo strukturu, ton i logiku kroz koju organizacije predstavljaju ",
+              },
+              { text: "profesionalne prilike", emphasis: true },
+              { text: " tržištu rada." },
+            ],
           },
         ],
       },
       {
         title: "MODEL RADA",
-        lead: "Cilj je kvalitetan proces sa predvidljivim tokom i jasnim rezultatima.",
+        lead: "Naš rad zasniva se na profesionalnom uvidu i savetodavnom pristupu.",
         items: [
           {
-            title: "UVID I PROCENE",
-            text: "Mapiramo izazove, prioritete i stanje procesa kako bismo postavili realan okvir za naredne korake.",
+            title: "UVIDI I PREPORUKE",
+            textParts: [
+              { text: "Nudimo jasne i precizne " },
+              { text: "smernice", emphasis: true },
+              {
+                text: " koje omogućavaju promišljeno donošenje odluka sa dugoročnim efektom.",
+              },
+            ],
           },
           {
-            title: "KONTROLA I IMPLEMENTACIJA",
-            text: "Kroz pracenje i optimizaciju svake faze, obezbedjujemo stabilnu isporuku i merljive rezultate.",
+            title: "Kontrola i implementacija",
+            textParts: [
+              {
+                text: "Zaključujemo angažman sa detaljnim uvidima i preporukama, ",
+              },
+              {
+                text: "ostavljajući klijentima punu kontrolu nad sprovođenjem i rezultatima",
+                emphasis: true,
+              },
+              { text: "." },
+            ],
           },
         ],
       },
@@ -104,38 +143,62 @@ const translations = {
     },
     sections: [
       {
-        title: "OUR EXPERTISE",
-        lead: "Our focus is on what truly creates measurable value.",
+        title: "Our Expertise",
+        lead: "Our work focuses on the labor market and employer positioning.",
         items: [
           {
-            title: "TALENT IDENTIFICATION",
-            text: "Through capability and potential analysis, we identify profiles with the strongest growth capacity.",
+            title: "Talent Identification",
+            textParts: [
+              {
+                text: "We analyze and identify key professional capabilities in the labor market, assessing where their potential creates the greatest strategic value in relation to an organization’s objectives.",
+              },
+            ],
           },
           {
-            title: "PROFESSIONAL PROFILE MAPPING",
-            text: "We map required competencies and align them with team and project goals.",
+            title: "Identification of Critical Talent",
+            textParts: [
+              {
+                text: "In every industry there are professional profiles whose value is high and whose availability is limited. These are precisely the profiles we identify.",
+              },
+            ],
           },
           {
-            title: "EMPLOYER IDENTITY DEVELOPMENT",
-            text: "We build consistent value communication that attracts and retains relevant candidates.",
+            title: "Employer Positioning",
+            textParts: [
+              {
+                text: "An employer’s identity defines how an organization positions itself in the labor market. We shape it into a clear and distinctive employer brand.",
+              },
+            ],
           },
           {
-            title: "JOB AD ARCHITECTURE",
-            text: "We craft job ads that are clear, distinctive, and aimed at the right audience.",
+            title: "Opportunity Positioning",
+            textParts: [
+              {
+                text: "We design the structure, tone, and logic through which organizations present professional opportunities to the labor market.",
+              },
+            ],
           },
         ],
       },
       {
-        title: "WORK MODEL",
-        lead: "The goal is a high-quality process with clear flow and predictable outcomes.",
+        title: "MODEL OF WORK",
+        lead: "Our work is grounded in professional insight and guided by an advisory approach.",
         items: [
           {
-            title: "INSIGHT AND EVALUATION",
-            text: "We map key challenges, priorities, and process status to set a realistic framework for next steps.",
+            title: "Insights and Recommendations",
+            textParts: [
+              {
+                text: "We provide clear and practical guidance that supports informed decision-making with long-term impact.",
+              },
+            ],
           },
           {
-            title: "CONTROL AND IMPLEMENTATION",
-            text: "With tracking and optimization in each phase, we ensure stable delivery and measurable results.",
+            title: "Client Ownership",
+            textParts: [
+              {
+                text: "Our engagement concludes with detailed insights and recommendations, while clients retain full ownership of implementation and outcomes.",
+              },
+            ],
           },
         ],
       },
@@ -181,6 +244,14 @@ export default function Home() {
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
+
+  function renderTextParts(parts) {
+    return parts.map((part, index) => (
+      <span key={`${part.text}-${index}`} className={part.emphasis ? styles.infoBodyEmphasis : ""}>
+        {part.text}
+      </span>
+    ));
+  }
 
   return (
     <main>
@@ -319,7 +390,7 @@ export default function Home() {
               {t.sections[0].items.map((item) => (
                 <article key={item.title}>
                   <h3>{item.title}</h3>
-                  <p>{item.text}</p>
+                  <p className={styles.infoBodyText}>{renderTextParts(item.textParts)}</p>
                 </article>
               ))}
             </div>
@@ -335,7 +406,7 @@ export default function Home() {
               {t.sections[1].items.map((item) => (
                 <article key={item.title}>
                   <h3>{item.title}</h3>
-                  <p>{item.text}</p>
+                  <p className={styles.infoBodyText}>{renderTextParts(item.textParts)}</p>
                 </article>
               ))}
             </div>

@@ -277,7 +277,7 @@
   background: #ffffff;
   color: #21344a;
   padding: 120px 0 72px;
-  font-family: inherit;
+  font-family: "Roboto", sans-serif;
 }
 
 .detailsInner {
@@ -299,47 +299,58 @@
 }
 
 .infoSection h2 {
-  font-size: clamp(28px, 3.2vw, 40px);
-  font-family: inherit;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-size: 40px;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: #1c2c5a;
   margin-bottom: 24px;
 }
 
 .goldLead {
-  color: #ecb046;
-  font-size: 16px;
-  font-family: inherit;
-  letter-spacing: 0.02em;
+  color: #cd932e;
+  font-size: 26px;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0;
   text-transform: none;
   font-style: italic;
-  line-height: 1.25;
-  margin-bottom: 48px;
-  padding-left: 44px;
+  line-height: 1.6;
+  margin-bottom: 72px;
+  padding-left: 2px;
 }
 
 .infoList {
   display: grid;
   gap: 42px;
-  padding-left: 44px;
+  padding-left: 26px;
 }
 
 .infoList h3 {
-  font-size: 24px;
-  font-family: inherit;
-  font-weight: 600;
+  font-size: 28px;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
   text-transform: uppercase;
-  letter-spacing: 0.015em;
+  letter-spacing: 0;
+  color: #1c2c5a;
   margin-bottom: 9px;
 }
 
-.infoList p {
+.infoBodyText {
   max-width: 760px;
-  font-size: 15px;
-  line-height: 1.25;
-  letter-spacing: 0.005em;
-  color: #3c4b5c;
+  font-size: 18px;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: #162652;
+}
+
+.infoBodyEmphasis {
+  font-weight: 400;
 }
 
 .preFooterSection {
@@ -437,8 +448,11 @@
 }
 
 .footerNav a {
+  display: inline-flex;
+  width: fit-content;
+  justify-self: start;
   font-size: 16px;
-  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   color: #1c2c5a;
 }
@@ -451,6 +465,9 @@
 }
 
 .footerSocial a {
+  display: inline-flex;
+  width: fit-content;
+  justify-self: start;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -620,13 +637,13 @@
   }
 
   .goldLead {
-    padding-left: 18px;
+    padding-left: 8px;
     margin-bottom: 24px;
   }
 
   .infoList {
     gap: 30px;
-    padding-left: 18px;
+    padding-left: 12px;
   }
 
   .consentPopup {
