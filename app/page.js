@@ -170,7 +170,11 @@ const translations = {
             title: "Talent Identification",
             textParts: [
               {
-                text: "We analyze and identify key professional capabilities in the labor market, assessing where their potential creates the greatest strategic value in relation to an organization’s objectives.",
+                text: "We analyze and ",
+              },
+              { text: "identify", emphasis: true },
+              {
+                text: " key professional capabilities in the labor market, assessing where their potential creates the greatest strategic value in relation to an organization’s objectives.",
               },
             ],
           },
@@ -178,24 +182,30 @@ const translations = {
             title: "Identification of Critical Talent",
             textParts: [
               {
-                text: "In every industry there are professional profiles whose value is high and whose availability is limited. These are precisely the profiles we identify.",
+                text: "In every industry there are professional profiles whose value is high and whose availability is limited. These are precisely the profiles we ",
               },
+              { text: "identify", emphasis: true },
+              { text: "." },
             ],
           },
           {
             title: "Employer Positioning",
             textParts: [
               {
-                text: "An employer’s identity defines how an organization positions itself in the labor market. We shape it into a clear and distinctive employer brand.",
+                text: "An employer’s identity defines how an organization positions itself in the labor market. We shape it into a clear and distinctive ",
               },
+              { text: "employer brand", emphasis: true },
+              { text: "." },
             ],
           },
           {
             title: "Opportunity Positioning",
             textParts: [
               {
-                text: "We design the structure, tone, and logic through which organizations present professional opportunities to the labor market.",
+                text: "We design the structure, tone, and logic through which organizations present ",
               },
+              { text: "professional opportunities", emphasis: true },
+              { text: " to the labor market." },
             ],
           },
         ],
@@ -208,15 +218,21 @@ const translations = {
             title: "Insights and Recommendations",
             textParts: [
               {
-                text: "We provide clear and practical guidance that supports informed decision-making with long-term impact.",
+                text: "We provide clear and practical ",
               },
+              { text: "guidance", emphasis: true },
+              { text: " that supports informed decision-making with long-term impact." },
             ],
           },
           {
             title: "Client Ownership",
             textParts: [
               {
-                text: "Our engagement concludes with detailed insights and recommendations, while clients retain full ownership of implementation and outcomes.",
+                text: "Our engagement concludes with detailed insights and recommendations, ",
+              },
+              {
+                text: "while clients retain full ownership of implementation and outcomes.",
+                emphasis: true,
               },
             ],
           },

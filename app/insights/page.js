@@ -64,10 +64,10 @@ const translations = {
       rights: "© 2026 HUNTWELL ADVISORY GROUP. ALL RIGHTS RESERVED.",
     },
     cards: {
-      source: "The Huntwell Perspective",
+      source: "The HuntWell Perspective",
       date: "March 28, 2026",
       title: "THE LABOR MARKET PARADOX:",
-      excerpt: "More candidates than ever, yet fewer hiring outcomes.",
+      excerpt: "More candidates than ever, yet fewer hiring outcomes",
       quote:
         "Serbia’s labor market has all the necessary actors, yet the communication between them remains fundamentally misaligned.",
       secondTitle: "EMPLOYER REPUTATION AND MARKET VISIBILITY",

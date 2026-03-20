@@ -372,7 +372,8 @@
 }
 
 .actionSecondary {
-  color: #ecb046;
+  color: #e29104;
+  border-color: #e29104;
 }
 
 .actionPrimary:hover {
