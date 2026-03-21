@@ -771,6 +771,151 @@
     font-size: 24px;
   }
 
+  /* Employer branding article, mobile: child order in .articleContent (no leadQuote) */
+  .topSection .articleContent > h3.articleSectionTitle:nth-child(2),
+  .topSection .articleContent > h3.articleSectionTitle:nth-child(6) {
+    margin: 0 0 40px;
+    font-size: 20px;
+    line-height: 1.6;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 500;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > p.articleBody:nth-child(3),
+  .topSection .articleContent > p.articleBody:nth-child(4),
+  .topSection .articleContent > p.articleBody:nth-child(7),
+  .topSection .articleContent > p.articleBody:nth-child(8) {
+    margin: 0 0 40px;
+    font-size: 14px;
+    line-height: 1.7;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 400;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > p.articleEmphasis:nth-child(5) {
+    margin: 0 0 40px;
+    font-size: 14px;
+    line-height: 1.7;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > p.articleBody:nth-child(9) {
+    margin: 0 0 40px;
+    font-size: 20px;
+    line-height: 1.6;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 400;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > p.articleBody:nth-child(9) .sectionTwoClosingEmphasis {
+    font-weight: 500;
+  }
+
+  .topSection .articleContent > .insightCards {
+    margin: 0 0 40px;
+    gap: 64px;
+  }
+
+  .topSection .articleContent > .insightCards .insightCardNumber {
+    font-size: 28px;
+    line-height: 1.6;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 300;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > .insightCards .insightCardTitle {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 500;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > .insightCards .insightCardBody {
+    font-size: 14px;
+    line-height: 1.7;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 400;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > h3.closingSectionTitle {
+    margin: 0 0 40px;
+    font-size: 24px;
+    line-height: 1.6;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 500;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > .closingParagraphs {
+    margin-top: 0;
+    margin-bottom: 40px;
+    gap: 40px;
+  }
+
+  .topSection .articleContent > .closingParagraphs .closingBody {
+    font-size: 15px;
+    line-height: 1.7;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 400;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > .postClosingLead {
+    margin: 0 0 40px;
+    font-size: 15px;
+    line-height: 1.7;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 500;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > .postClosingBody {
+    margin: 0 0 40px;
+    font-size: 15px;
+    line-height: 1.7;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 400;
+    color: #1c2c5a;
+  }
+
+  .topSection .articleContent > .postClosingBody .postClosingBodyEmphasis {
+    font-weight: 500;
+  }
+
+  .topSection .articleContent > .articleEndRule {
+    margin: 0 0 40px;
+    width: 100%;
+    max-width: none;
+    height: 0.3px;
+    background: #1c2c5a;
+  }
+
+  .topSection .articleContent > .articleDisclaimer {
+    margin: 0 0 40px;
+    font-size: 12px;
+    line-height: 1.6;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+    font-weight: 300;
+    color: rgba(22, 38, 82, 0.66);
+  }
+
+  .topSection .articleContent > .articleBottomRule {
+    margin: 0 0 60px;
+    width: 100%;
+    max-width: none;
+    height: 0.3px;
+    background: #1c2c5a;
+  }
+
   .header .shell {
     grid-template-columns: 1fr auto;
     align-items: center;
