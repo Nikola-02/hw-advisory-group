@@ -260,7 +260,7 @@
 .pageHeroReveal {
   opacity: 0;
   transform: translateY(14px);
-  animation: pageHeroRevealIn 400ms ease-out 400ms forwards;
+  animation: pageHeroRevealIn 650ms ease-out 400ms forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -304,6 +304,12 @@
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 400;
   color: #1c2c5a;
+}
+
+.titleEmphasis {
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
 }
 
 .subtitle {
@@ -371,54 +377,67 @@
   color: #1c2c5a;
 }
 
+.sectionTwoClosingEmphasis {
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.articleEmphasis {
+  margin-top: 40px;
+  font-size: 24px;
+  line-height: 160%;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  color: #1c2c5a;
+}
+
 .insightCards {
   margin-top: 40px;
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 64px;
 }
 
 .insightCard {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  gap: 24px;
-  padding: 32px 40px;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 24px;
+  row-gap: 8px;
 }
 
-/* Column tracks text height; line draws slightly above/below (same offset on all cards). */
-.insightCardRule {
-  position: relative;
-  width: 0;
-  flex-shrink: 0;
-  align-self: stretch;
-}
-
-.insightCardRule::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -10px;
-  bottom: -10px;
-  width: 1px;
-  background: #1c2c5a;
-}
-
-.insightCardText {
+.insightCardNumber {
   margin: 0;
-  flex: 1;
-  min-width: 0;
-  font-size: 22px;
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 32px;
+  line-height: 160%;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 300;
+  color: #1c2c5a;
+}
+
+.insightCardTitle {
+  margin: 0;
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 24px;
+  line-height: 160%;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+  color: #1c2c5a;
+}
+
+.insightCardBody {
+  margin: 0;
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 20px;
   line-height: 160%;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 400;
-  color: #162652;
-}
-
-.insightCardLead {
-  font-weight: 500;
+  color: #1c2c5a;
 }
 
 .closingSectionTitle {
@@ -432,10 +451,10 @@
 
 .closingParagraphs {
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 }
 
 .closingBody {
@@ -448,8 +467,8 @@
 }
 
 .postClosingLead {
-  margin: 0 0 30px;
-  font-size: 26px;
+  margin: 0 0 80px;
+  font-size: 24px;
   line-height: 170%;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 500;
@@ -465,6 +484,11 @@
   color: #1c2c5a;
 }
 
+.postClosingBodyEmphasis {
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+}
+
 .articleEndRule {
   margin: 0 0 80px;
   height: 0.3px;
@@ -472,12 +496,18 @@
 }
 
 .articleDisclaimer {
-  margin: 0 0 90px;
+  margin: 0;
   font-size: 22px;
   line-height: 160%;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 300;
   color: rgba(22, 38, 82, 0.66);
+}
+
+.articleBottomRule {
+  margin: 80px 0 90px;
+  height: 0.3px;
+  background: #1c2c5a;
 }
 
 .footer {

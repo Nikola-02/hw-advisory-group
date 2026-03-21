@@ -21,59 +21,63 @@ const translations = {
     },
     pageIntro: {
       tag: "Employer Branding",
-      title: "Paradoks savremenog tržišta rada",
+      titlePrefix: "Bez employer brandinga kompanija postaje ",
+      titleEmphasis: "nevidljiv",
+      titleSuffix: " poslodavac",
       subtitle: "Perspektiva HuntWell Advisory Group",
       meta: "MART 28, 2026 · 3 MIN ČITANJA",
     },
     article: {
       leadTitle:
-        "Nikad više kandidata. Nikad manje zapošljavanja. Paradoks koji sve snažnije definiše tržište rada u Srbiji.",
-      leadQuote:
-        "Tržište rada u Srbiji ima sve aktere, ali ne i pravu komunikaciju između njih.",
-      sectionOneTitle: "Fenomen koji ne nestaje",
+        "Reputacija poslodavca nije stvar sreće ni slučajnosti. Ona se gradi ili prepušta drugima.",
+      sectionOneTitle: "Pozicija na tržištu rada nije podrazumevana.",
       sectionOneBody:
-        "Postoji fenomen koji sve vidljivije oblikuje srpsko tržište rada, ali se o njemu retko govori direktno. Sa jedne strane broj ljudi koji aktivno traže posao raste iz godine u godinu. Sa druge, kompanije zapošljavaju sve selektivnije i sve opreznije. Između ta dva sveta postoji jaz koji se ne smanjuje, već se produbljuje.",
+        "Kompanije ulažu znatne resurse u izgradnju poslovnog brenda, tržišnu poziciju i odnose sa klijentima. Reputacija poslodavca ostaje, međutim, zanemarena oblast.",
       sectionOneClosing:
-        "Ovo nije prolazna fluktuacija. Ovo je strukturni paradoks tržišta rada.",
-      sectionTwoTitle: "Kada ponuda i potražnja ne govore isti jezik",
+        "Posledica je predvidiva. Takve kompanije formalno postoje na tržištu rada, ali na njemu nisu zaista prisutne. Oglašavaju pozicije, ali ne privlače prave profile. Zapošljavaju, ali biraju iz onoga što tržište ponudi, a ne iz onoga što bi zaista želele da imaju.",
+      sectionOneEmphasis:
+        "Svaka kompanija ima reputaciju poslodavca. Razlika je samo u tome ko je oblikuje i da li je to urađeno namerno.",
+      sectionTwoTitle: "Šta employer branding zapravo znači",
       sectionTwoBodyOne:
-        "Na prvi pogled, tržište rada u Srbiji deluje funkcionalno. Dublja analiza otkriva znatno složeniju sliku. Kandidati su danas obrazovaniji, mobilniji i spremniji da preuzmu nove profesionalne uloge nego u bilo kom ranijem periodu. Ipak, mnogi provode mesece u bezuspešnoj potrazi: ne zato što nisu dovoljno dobri, već zato što ono što nude i ono što tržište u ovom trenutku traži sve češće ne odgovara jedno drugom.",
+        "Employer branding nije HR komunikacija ni korporativni marketing. To je strateško definisanje i upravljanje onim što kompanija predstavlja kao poslodavac: šta nudi, kakva je kao radno okruženje i po čemu se razlikuje od konkurencije na tržištu rada.",
       sectionTwoBodyTwo:
-        "Kompanije se, s druge strane, suočavaju sa ekonomskom neizvesnošću, rastućim troškovima poslovanja i pritiskom da svaku novu poziciju višestruko opravdaju pre nego što je objave. Zapošljavanje je postalo strateška odluka, a ne operativna potreba. Rezultat: manji broj otvorenih pozicija, duži procesi selekcije i sve viši standardi koji se postavljaju pred potencijalnim zaposlenima.",
-      sectionTwoClosing: "Na kraju, i jedni i drugi ostaju u poziciji čekanja.",
+        "Kompanija sa jasno izgrađenom pozicijom poslodavca skraćuje vreme pronalaska kandidata, privlači profile koji odgovaraju njenoj kulturi i smanjuje odliv zaposlenih. Kompanija bez nje oslanja se na slučaj i radi sa onim što tržište donese.",
+      sectionTwoClosingPrefix: "To nije pitanje veličine kompanije. ",
+      sectionTwoClosingEmphasis: "To je pitanje pristupa.",
       sectionThreeTitle: "Šta zapravo stoji iza ovog paradoksa",
       sectionThreeBody:
         "Iz naše perspektive, ovaj paradoks nije slučajnost. On je rezultat nekoliko strukturnih promena koje su se odvijale postepeno, a čiji se efekti sada osećaju istovremeno.",
       insightCards: [
         {
-          lead: "Raskorak između obrazovnih profila i tržišnih potreba",
+          number: "01.",
+          title: "Percepcija pre prvog kontakta",
           body:
-            " nije nova tema, ali postaje sve akutnija. Generacije ulaze na tržište rada sa kompetencijama stečenim u jednom kontekstu, dok ih realne poslovne potrebe dočekuju s potpuno drugačijim zahtevima.",
+            "Kandidat donosi sud o kompaniji kao poslodavcu pre nego što stupi u ikakav kontakt. Ta percepcija se formira kroz javno prisustvo, konzistentnost poruke i ono što drugi govore o kompaniji.",
         },
         {
-          lead: "Demografska kretanja i odliv profesionalaca",
+          number: "02.",
+          title: "Kandidatsko iskustvo",
           body:
-            " ostavljaju rupe koje nije lako popuniti. Tržište gubi deo svojih najkompetentnijih kadrova, a taj gubitak direktno oblikuje šta je dostupno i kome.",
+            "Svaka tačka kontakta s kandidatom, od oglasa do završnog razgovora, komunicira vrednost kompanije kao poslodavca. Proces selekcije je employer branding, hteli to ili ne.",
         },
         {
-          lead: "Oprez kompanija pri zapošljavanju",
+          number: "03.",
+          title: "Interna reputacija",
           body:
-            " nije iracionalan. U uslovima nestabilnog poslovnog okruženja, svaka nova pozicija nosi trošak i rizik. Kompanije to znaju, pa se zapošljavanje sve češće odvija reaktivno, a ne proaktivno.",
+            "Ono što zaposleni govore o kompaniji van njenih zidova predstavlja najsnažniji oblik employer brandinga. Njega ne oblikuje marketing, oblikuje ga svakodnevno iskustvo rada u kompaniji.",
         },
       ],
-      missingPerspectiveTitle: "Perspektiva koja nedostaje",
+      missingPerspectiveTitle: "Cena nevidljivosti",
       closingParagraphs: [
-        "Tržištu rada danas ne nedostaje broj kandidata niti broj oglasa. Nedostaje preciznost.",
-        "Preciznost u razumevanju toga ko su pravi talenti i gde se nalaze.",
-        "Preciznost u pozicioniranju poslodavca kao izbora, ne kao opcije.",
-        "Preciznost u pristupu tržištu rada kao strateškom resursu, a ne administrativnoj obavezi.",
-        "Paradoks tržišta rada nije nerešiv. Ali ga nije moguće rešiti metodama iz prošlih ciklusa.",
-        "Za HuntWell Advisory Group ovaj paradoks nije apstraktna tema, on je u samoj srži našeg rada.",
+        "Kompanije koje ne upravljaju aktivno svojom pozicijom na tržištu rada ne ostaju na nultoj tački. One gube poziciju u korist onih koji to rade. Na tržištu gde talenti imaju izbor, prednost imaju prepoznatljivi, ne nužno bolji poslodavci.",
+        "Rezultat je konkretan: duži procesi popunjavanja pozicija, veći troškovi po zapošljavanju i slabiji profili kandidata. Kompanija s izgrađenim employer brendom ne prolazi kroz isti proces, jer ulazi u bolju startnu poziciju pre nego što proces i počne.",
       ],
       postClosingLead:
-        "Identifikujemo talente tamo gde ih standardni procesi ne dosežu i pomažemo kompanijama da se pozicioniraju kao poslodavci koje vrhunski talenti biraju.",
-      postClosingBody:
-        "U takvom okruženju, sposobnost precizne identifikacije i strateškog pozicioniranja talenata postaje ključna konkurentska prednost.",
+        "Employer branding nije inicijativa koja se pokreće kada kompanija ima problem s pronalaskom kadrova. To je strateška pozicija koja se gradi pre nego što problem nastane i koja, kada se jednom uspostavi, postaje trajna prednost.",
+      postClosingBodyPrefix:
+        "U HuntWell Advisory Group, pozicioniranje kompanije na tržištu rada tretiramo kao poslovnu odluku, a ne kao komunikacijsku aktivnost. ",
+      postClosingBodySuffix:
+        "Kompanije koje imaju kontrolu nad svojom pričom kao poslodavac ne čekaju reakciju tržišta, već same određuju svoju poziciju na njemu.",
       articleDisclaimer:
         "Stavovi izneti u ovom tekstu predstavljaju perspektivu HuntWell Advisory Group zasnovanu na opservaciji i analizi tržišnih kretanja. Sadržaj je informativnog i edukativnog karaktera i ne predstavlja profesionalni, pravni niti poslovni savet.",
     },
@@ -97,59 +101,63 @@ const translations = {
     },
     pageIntro: {
       tag: "Employer Branding",
-      title: "The Labor Market Paradox",
+      titlePrefix: "Without employer branding companies become ",
+      titleEmphasis: "invisible",
+      titleSuffix: " employers",
       subtitle: "The Huntwell Perspective",
       meta: "MARCH 28, 2026 · 3 MIN READING",
     },
     article: {
       leadTitle:
-        "There have never been more candidates. Hiring has never been lower. A paradox increasingly defining the Serbian labor market.",
-      leadQuote:
-        "Serbia's labor market has all the necessary actors, yet the communication between them remains fundamentally misaligned.",
-      sectionOneTitle: "A persistent phenomenon",
+        "An employer’s reputation is not a matter of chance. It is either built intentionally or shaped by others.",
+      sectionOneTitle: "Your position in the labor market is not a given.",
       sectionOneBody:
-        "There is a phenomenon that is becoming increasingly visible in the Serbian labor market, yet is rarely addressed directly. On one side, the number of people actively seeking employment continues to grow year after year. On the other, companies are hiring with increasing selectivity and caution. Between these two realities lies a gap that is not narrowing, but deepening.",
+        "Companies invest significant resources in building their business brand, market position, and client relationships. Yet employer reputation often remains an overlooked area.",
       sectionOneClosing:
-        "This is not a temporary fluctuation. It is a structural paradox of the labor market.",
-      sectionTwoTitle: "When supply and demand do not speak the same language",
+        "The outcome is predictable. Such companies formally exist in the labor market, but are not truly present in it. They advertise roles, but fail to attract the right profiles. They hire, but select from what the market offers, rather than from what they would truly want to have.",
+      sectionOneEmphasis:
+        "Every company has an employer reputation. The only difference is who shapes it and whether it is shaped intentionally.",
+      sectionTwoTitle: "What employer branding really means",
       sectionTwoBodyOne:
-        "At first glance, the Serbian labor market appears functional. A deeper analysis reveals a far more complex reality. Candidates today are more educated, more mobile, and more willing to take on new professional roles than ever before. Yet many spend months searching for opportunities without success, not because they lack quality, but because what they offer and what the market currently demands are increasingly misaligned.",
+        "Employer branding is not HR communication or corporate marketing. It is the strategic definition and management of what a company represents as an employer, what it offers, what kind of work environment it provides, and how it differentiates itself in the labor market.",
       sectionTwoBodyTwo:
-        "On the other side, companies are facing economic uncertainty, rising operating costs, and growing pressure to justify each new role before opening it. Hiring has become a strategic decision rather than an operational need. The result is fewer open positions, longer hiring processes, and increasingly high expectations placed on potential employees.",
-      sectionTwoClosing: "In the end, both sides remain in a holding pattern.",
+        "A company with a clearly defined employer position shortens time to hire, attracts talent aligned with its culture, and reduces employee turnover. Without it, companies rely on chance and work with what the market provides.",
+      sectionTwoClosingPrefix: "It is not about company size. ",
+      sectionTwoClosingEmphasis: "It is about approach.",
       sectionThreeTitle: "What is driving this paradox",
       sectionThreeBody:
         "From our perspective, this paradox is not a coincidence. It is the result of several structural shifts that have unfolded gradually, and whose effects are now being felt simultaneously.",
       insightCards: [
         {
-          lead: "The gap between educational profiles and market needs",
+          number: "01.",
+          title: "Perception before first contact",
           body:
-            " is not new, but it is becoming increasingly acute. New generations are entering the labor market with competencies developed in one context, while real business needs confront them with entirely different expectations.",
+            "Candidates form an opinion about a company as an employer before any direct interaction takes place. That perception is shaped by public presence, consistency of messaging, and what others say about the company.",
         },
         {
-          lead: "Demographic trends and the outflow of professionals",
+          number: "02.",
+          title: "Candidate experience",
           body:
-            " are creating gaps that are not easy to fill. The market is losing some of its most capable talent, and that loss directly shapes what is available and to whom.",
+            "Every point of contact with a candidate, from the job posting to the final interview, communicates the company’s value as an employer. The selection process is employer branding, whether intended or not.",
         },
         {
-          lead: "Caution in hiring",
+          number: "03.",
+          title: "Internal reputation",
           body:
-            " is not irrational. In an environment marked by business uncertainty, every new role carries both cost and risk. Companies are well aware of this, which is why hiring is increasingly reactive rather than proactive.",
+            "What employees say about a company outside its walls represents the most powerful form of employer branding. It is not shaped by marketing, but by the everyday experience of working within the company.",
         },
       ],
-      missingPerspectiveTitle: "The missing perspective",
+      missingPerspectiveTitle: "The cost of invisibility",
       closingParagraphs: [
-        "The labor market today does not lack candidates, nor does it lack job postings. What it lacks is precision.",
-        "Precision in understanding who the right talent is and where to find it.",
-        "Precision in positioning the employer as a choice, not just an option.",
-        "Precision in approaching the labor market as a strategic resource rather than an administrative function.",
-        "The labor market paradox is not unsolvable. But it cannot be addressed with methods from past cycles.",
-        "For HuntWell Advisory Group, this paradox is not an abstract concept. It lies at the very core of our work.",
+        "Companies that do not actively manage their position in the labor market do not remain at a standstill. They lose ground to those that do. In a market where talent has a choice, the advantage lies with employers who are visible, not necessarily better.",
+        "The outcome is tangible: longer time to fill, higher cost per hire, and weaker candidate profiles. Companies with a well-established employer brand do not go through the same process, as they start from a stronger position before it even begins.",
       ],
       postClosingLead:
-        "We identify talent beyond the reach of standard processes and help companies position themselves as the employer of choice for top-tier talent.",
-      postClosingBody:
-        "In such an environment, the ability to identify and strategically position talent with precision becomes a critical competitive advantage.",
+        "Employer branding is not an initiative introduced when a company struggles to find talent. It is a strategic position built before the problem arises and, once established, becomes a lasting advantage.",
+      postClosingBodyPrefix:
+        "At HuntWell Advisory Group, we treat a company’s positioning in the labor market as a business decision rather than a communication activity. ",
+      postClosingBodySuffix:
+        "Companies that control their employer narrative do not wait for the market to respond. They define their position within it.",
       articleDisclaimer:
         "The views expressed in this text reflect the perspective of HuntWell Advisory Group, based on the observation and analysis of market trends. The content is provided for informational and educational purposes only and does not constitute professional, legal, or business advice.",
     },
@@ -335,31 +343,37 @@ export default function EmployerBrandingPage() {
         <div className={styles.shell}>
           <div className={styles.pageHeroReveal}>
             <span className={styles.topicTag}>{t.pageIntro.tag}</span>
-            <h1>{t.pageIntro.title}</h1>
+            <h1>
+              {t.pageIntro.titlePrefix}
+              <span className={styles.titleEmphasis}>{t.pageIntro.titleEmphasis}</span>
+              {t.pageIntro.titleSuffix}
+            </h1>
             <p className={styles.subtitle}>{t.pageIntro.subtitle}</p>
             <p className={styles.meta}>{t.pageIntro.meta}</p>
             <div className={styles.sectionDivider} />
           </div>
           <div className={styles.articleContent}>
             <h2 className={styles.articleLeadTitle}>{t.article.leadTitle}</h2>
-            <p className={styles.articleLeadQuote}>“{t.article.leadQuote}”</p>
+            {t.article.leadQuote && <p className={styles.articleLeadQuote}>“{t.article.leadQuote}”</p>}
             <h3 className={styles.articleSectionTitle}>{t.article.sectionOneTitle}</h3>
             <p className={styles.articleBody}>{t.article.sectionOneBody}</p>
             <p className={styles.articleBody}>{t.article.sectionOneClosing}</p>
+            <p className={styles.articleEmphasis}>{t.article.sectionOneEmphasis}</p>
             <h3 className={styles.articleSectionTitle}>{t.article.sectionTwoTitle}</h3>
             <p className={styles.articleBody}>{t.article.sectionTwoBodyOne}</p>
             <p className={styles.articleBody}>{t.article.sectionTwoBodyTwo}</p>
-            <p className={styles.articleBody}>{t.article.sectionTwoClosing}</p>
-            <h3 className={styles.articleSectionTitle}>{t.article.sectionThreeTitle}</h3>
-            <p className={styles.articleBody}>{t.article.sectionThreeBody}</p>
+            <p className={styles.articleBody}>
+              {t.article.sectionTwoClosingPrefix}
+              <span className={styles.sectionTwoClosingEmphasis}>
+                {t.article.sectionTwoClosingEmphasis}
+              </span>
+            </p>
             <div className={styles.insightCards}>
               {t.article.insightCards.map((card, index) => (
                 <div key={index} className={styles.insightCard}>
-                  <div className={styles.insightCardRule} aria-hidden />
-                  <p className={styles.insightCardText}>
-                    <span className={styles.insightCardLead}>{card.lead}</span>
-                    {card.body}
-                  </p>
+                  <p className={styles.insightCardNumber}>{card.number}</p>
+                  <h4 className={styles.insightCardTitle}>{card.title}</h4>
+                  <p className={styles.insightCardBody}>{card.body}</p>
                 </div>
               ))}
             </div>
@@ -372,9 +386,13 @@ export default function EmployerBrandingPage() {
               ))}
             </div>
             <p className={styles.postClosingLead}>{t.article.postClosingLead}</p>
-            <p className={styles.postClosingBody}>{t.article.postClosingBody}</p>
+            <p className={styles.postClosingBody}>
+              <span className={styles.postClosingBodyEmphasis}>{t.article.postClosingBodyPrefix}</span>
+              {t.article.postClosingBodySuffix}
+            </p>
             <div className={styles.articleEndRule} aria-hidden />
             <p className={styles.articleDisclaimer}>{t.article.articleDisclaimer}</p>
+            <div className={styles.articleBottomRule} aria-hidden />
           </div>
         </div>
       </section>

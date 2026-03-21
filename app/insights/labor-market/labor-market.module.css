@@ -260,7 +260,7 @@
 .pageHeroReveal {
   opacity: 0;
   transform: translateY(14px);
-  animation: pageHeroRevealIn 400ms ease-out 400ms forwards;
+  animation: pageHeroRevealIn 650ms ease-out 400ms forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -472,12 +472,18 @@
 }
 
 .articleDisclaimer {
-  margin: 0 0 90px;
+  margin: 0;
   font-size: 22px;
   line-height: 160%;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 300;
   color: rgba(22, 38, 82, 0.66);
+}
+
+.articleBottomRule {
+  margin: 80px 0 90px;
+  height: 0.3px;
+  background: #1c2c5a;
 }
 
 .footer {

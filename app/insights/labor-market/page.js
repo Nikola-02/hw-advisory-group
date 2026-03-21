@@ -375,6 +375,7 @@ export default function LaborMarketPage() {
             <p className={styles.postClosingBody}>{t.article.postClosingBody}</p>
             <div className={styles.articleEndRule} aria-hidden />
             <p className={styles.articleDisclaimer}>{t.article.articleDisclaimer}</p>
+            <div className={styles.articleBottomRule} aria-hidden />
           </div>
         </div>
       </section>
