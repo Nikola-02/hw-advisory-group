@@ -87,8 +87,8 @@ export default function InsightsPage() {
   const insightsDropdownRef = useRef(null);
   const languageStorageKey = "hw_site_language";
   const t = translations[language];
-  const laborMarketPath = "/insights#labor-market";
-  const employerBrandingPath = "/insights#employer-branding";
+  const laborMarketPath = "/insights/labor-market";
+  const employerBrandingPath = "/insights/employer-branding";
 
   useEffect(() => {
     try {
@@ -262,14 +262,20 @@ export default function InsightsPage() {
               <div className={styles.insightLeft}>
                 <h3>{t.cards.title}</h3>
                 <p className={styles.insightExcerpt}>{t.cards.excerpt}</p>
-                <span className={styles.insightArrow} aria-hidden="true">
+                <Link
+                  href={laborMarketPath}
+                  className={styles.insightArrow}
+                  aria-label={t.insightsDropdown.laborMarket}
+                >
                   &gt;
-                </span>
+                </Link>
               </div>
               <div className={styles.insightRight}>
                 <p className={styles.insightSource}>{t.cards.source}</p>
                 <p className={styles.insightDate}>{t.cards.date}</p>
-                <p className={styles.insightQuote}>“{t.cards.quote}”</p>
+                <Link href={laborMarketPath} className={styles.insightQuote}>
+                  “{t.cards.quote}”
+                </Link>
               </div>
             </article>
 
@@ -277,14 +283,23 @@ export default function InsightsPage() {
               <div className={styles.insightLeft}>
                 <h3>{t.cards.secondTitle}</h3>
                 <p className={styles.insightExcerpt}>{t.cards.secondExcerpt}</p>
-                <span className={styles.insightArrow} aria-hidden="true">
+                <Link
+                  href={employerBrandingPath}
+                  className={styles.insightArrow}
+                  aria-label={t.insightsDropdown.employerBranding}
+                  onClick={() => setIsInsightsOpen(false)}
+                >
                   &gt;
-                </span>
+                </Link>
               </div>
               <div className={styles.insightRight}>
                 <p className={styles.insightSource}>{t.cards.source}</p>
                 <p className={styles.insightDate}>{t.cards.date}</p>
-                <p className={styles.insightQuote}>“{t.cards.secondQuote}”</p>
+                <Link
+                  href={employerBrandingPath}
+                  className={styles.insightQuote}
+                  onClick={() => setIsInsightsOpen(false)}
+                >“{t.cards.secondQuote}”</Link>
               </div>
             </article>
           </section>

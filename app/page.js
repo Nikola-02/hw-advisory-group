@@ -268,8 +268,8 @@ export default function Home() {
   const t = translations[language];
   const languageStorageKey = "hw_site_language";
   const insightsPath = "/insights";
-  const laborMarketPath = "/insights#labor-market";
-  const employerBrandingPath = "/insights#employer-branding";
+  const laborMarketPath = "/insights/labor-market";
+  const employerBrandingPath = "/insights/employer-branding";
 
   useEffect(() => {
     try {

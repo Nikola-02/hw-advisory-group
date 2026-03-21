@@ -81,8 +81,8 @@ export default function ConsultationPage() {
   const consentStorageKey = "hw_calendly_notice_ack";
   const languageStorageKey = "hw_site_language";
   const insightsPath = "/insights";
-  const laborMarketPath = "/insights#labor-market";
-  const employerBrandingPath = "/insights#employer-branding";
+  const laborMarketPath = "/insights/labor-market";
+  const employerBrandingPath = "/insights/employer-branding";
 
   const embedUrl = `${calendlyUrl}${calendlyUrl.includes("?") ? "&" : "?"}hide_gdpr_banner=1`;
   const isPlaceholder = calendlyUrl.includes("your-calendly-link");

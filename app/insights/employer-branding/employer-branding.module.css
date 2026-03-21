@@ -94,11 +94,7 @@
   width: 100%;
 }
 
-.rightNav > a::after {
-  left: 6px;
-  width: calc(100% - 12px);
-}
-
+.rightNav > a::after,
 .navInsightsButton::after {
   left: 6px;
   width: calc(100% - 12px);
@@ -249,6 +245,32 @@
   background: #f2f5f8;
 }
 
+@keyframes pageHeroRevealIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pageHeroReveal {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: pageHeroRevealIn 400ms ease-out 400ms forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pageHeroReveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
 .topSection {
   padding: 34px 0 0;
   transition: padding-top 360ms ease-out;
@@ -258,152 +280,204 @@
   padding-top: 124px;
 }
 
-.topSection h1 {
-  font-size: 40px;
-  font-family: "Roboto Condensed", "Roboto", sans-serif;
-  font-weight: 500;
+.topicTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.3px solid #1c2c5a;
+  border-radius: 16px;
+  min-height: 33px;
+  min-width: 133px;
+  padding: 0 12px;
+  font-size: 18px;
   line-height: 1.6;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #1c2c5a;
-}
-
-.topSection h2 {
-  margin-top: 0;
-  font-size: 40px;
-  font-family: "Roboto Condensed", "Roboto", sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
-  color: #1c2c5a;
-}
-
-.topSection p {
-  margin-top: 24px;
-  max-width: 920px;
-  font-size: 24px;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 400;
+  color: #1c2c5a;
+}
+
+.topSection h1 {
+  margin-top: 24px;
+  font-size: 48px;
   line-height: 1.6;
+  letter-spacing: 0.02em;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 400;
+  color: #1c2c5a;
+}
+
+.subtitle {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 300;
+  color: #1c2c5a;
+}
+
+.meta {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 600;
   color: #1c2c5a;
 }
 
 .sectionDivider {
-  margin-top: 80px;
+  margin-top: 24px;
   height: 0.3px;
   background: #1c2c5a;
 }
 
+.articleContent {
+  margin-top: 80px;
+}
+
+.articleLeadTitle {
+  font-size: 44px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 600;
+  color: #1c2c5a;
+}
+
+.articleLeadQuote {
+  margin-top: 32px;
+  font-size: 30px;
+  line-height: 1.6;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  color: #1c2c5a;
+}
+
+.articleSectionTitle {
+  margin-top: 40px;
+  font-size: 28px;
+  line-height: 1.6;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+  color: #1c2c5a;
+}
+
+.articleBody {
+  margin-top: 40px;
+  font-size: 24px;
+  line-height: 1.7;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 400;
+  color: #1c2c5a;
+}
+
 .insightCards {
-  margin-top: 135px;
-  display: grid;
-  gap: 190px;
-  padding-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .insightCard {
-  background: transparent;
   position: relative;
-  isolation: isolate;
-  overflow: visible;
-  border-radius: 4px;
-  color: #ffffff;
-  padding: 44px 52px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  min-height: 390px;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  padding: 32px 40px;
+  box-sizing: border-box;
 }
 
-.insightCard::before {
+/* Column tracks text height; line draws slightly above/below (same offset on all cards). */
+.insightCardRule {
+  position: relative;
+  width: 0;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.insightCardRule::after {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: -10px;
+  bottom: -10px;
+  width: 1px;
   background: #1c2c5a;
-  border-radius: 4px;
-  z-index: -1;
-  transform-origin: center;
-  transition: transform 280ms ease;
-  box-shadow: 0 0 20px 10px rgba(28, 44, 90, 0.15);
 }
 
-.insightCard:hover {
-  transform: none;
-}
-
-.insightCard:hover::before {
-  transform: scaleY(1.16);
-}
-
-.insightCard h3,
-.insightCard p,
-.insightCard span {
-  color: #ffffff !important;
-}
-
-.insightLeft h3 {
+.insightCardText {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-size: 22px;
+  line-height: 160%;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1.6;
-  text-transform: uppercase;
-  color: #ffffff !important;
-}
-
-.insightExcerpt {
-  margin-top: 10px;
-  font-family: "Roboto Condensed", "Roboto", sans-serif;
-  font-size: 36px;
   font-weight: 400;
-  line-height: 1.6;
-  max-width: 560px;
-  color: #ffffff !important;
+  color: #162652;
 }
 
-.insightArrow {
-  display: inline-block;
-  margin-top: 16px;
-  font-size: 152px;
-  line-height: 0.75;
-  font-weight: 700;
-  color: #ffffff !important;
-  text-decoration: none;
+.insightCardLead {
+  font-weight: 500;
 }
 
-.insightRight {
-  display: grid;
-  align-content: start;
-  gap: 28px;
-}
-
-.insightSource {
+.closingSectionTitle {
+  margin: 0;
+  font-size: 28px;
+  line-height: 160%;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+  color: #1c2c5a;
+}
+
+.closingParagraphs {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.closingBody {
+  margin: 0;
   font-size: 24px;
-  font-weight: 300;
-  line-height: 1.6;
-  color: #ffffff !important;
+  line-height: 170%;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 400;
+  color: #1c2c5a;
 }
 
-.insightDate {
+.postClosingLead {
+  margin: 0 0 30px;
+  font-size: 26px;
+  line-height: 170%;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 500;
+  color: #1c2c5a;
+}
+
+.postClosingBody {
+  margin: 0 0 80px;
   font-size: 24px;
-  font-weight: 600;
-  font-style: italic;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  line-height: 1.6;
-  color: #ffffff !important;
+  line-height: 170%;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 400;
+  color: #1c2c5a;
 }
 
-.insightQuote {
+.articleEndRule {
+  margin: 0 0 80px;
+  height: 0.3px;
+  background: #1c2c5a;
+}
+
+.articleDisclaimer {
+  margin: 0 0 90px;
+  font-size: 22px;
+  line-height: 160%;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
-  font-size: 32px;
   font-weight: 300;
-  font-style: italic;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  line-height: 1.6;
-  max-width: 620px;
-  color: #ffffff !important;
+  color: rgba(22, 38, 82, 0.66);
 }
 
 .footer {
@@ -504,32 +578,6 @@
   color: #1c2c5a;
 }
 
-@media (max-width: 1200px) {
-  .insightLeft h3 {
-    font-size: 40px;
-  }
-
-  .insightExcerpt {
-    font-size: 36px;
-  }
-
-  .insightArrow {
-    font-size: 92px;
-  }
-
-  .insightSource {
-    font-size: 32px;
-  }
-
-  .insightDate {
-    font-size: 38px;
-  }
-
-  .insightQuote {
-    font-size: 42px;
-  }
-}
-
 @media (max-width: 900px) {
   .shell {
     width: calc(100% - 48px);
@@ -550,60 +598,32 @@
     gap: 16px;
   }
 
-  .topSection h1,
-  .topSection h2 {
-    font-size: 32px;
-  }
-
-  .topSection p {
-    font-size: 20px;
-  }
-
   .topSectionShifted {
     padding-top: 96px;
   }
 
-  .insightCards {
-    margin-top: 90px;
-    gap: 110px;
+  .topicTag {
+    font-size: 16px;
   }
 
-  .insightCard {
-    grid-template-columns: 1fr;
-    padding: 34px 26px;
-    min-height: 320px;
+  .topSection h1 {
+    font-size: 38px;
   }
 
-  .insightCard:hover {
-    transform: none;
-  }
-
-  .insightCard:hover::before {
-    transform: scaleY(1.12);
-  }
-
-  .insightLeft h3 {
-    font-size: 30px;
-  }
-
-  .insightExcerpt {
+  .articleLeadTitle {
     font-size: 36px;
   }
 
-  .insightArrow {
-    font-size: 92px;
-  }
-
-  .insightSource {
+  .articleLeadQuote {
     font-size: 26px;
   }
 
-  .insightDate {
-    font-size: 30px;
+  .articleSectionTitle {
+    font-size: 24px;
   }
 
-  .insightQuote {
-    font-size: 34px;
+  .articleBody {
+    font-size: 22px;
   }
 
   .footerInner {
