@@ -966,13 +966,13 @@
     height: 34px;
     padding: 0 14px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.92);
-    color: #1c2c5a;
+    background: transparent;
+    color: #ffffff;
     font-size: 14px;
   }
 
   .languageChevron {
-    color: #1c2c5a;
+    color: #ffffff;
   }
 
   .languageMenu {
