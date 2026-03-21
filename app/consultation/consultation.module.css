@@ -577,6 +577,10 @@
 }
 
 @media (max-width: 640px) {
+  .shell {
+    width: calc(100% - 40px);
+  }
+
   .header .shell {
     grid-template-columns: 1fr auto;
     align-items: center;

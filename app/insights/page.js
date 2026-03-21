@@ -403,6 +403,7 @@ export default function InsightsPage() {
               </div>
             </article>
           </section>
+          <div className={styles.bottomSectionDivider} />
         </div>
       </section>
 
