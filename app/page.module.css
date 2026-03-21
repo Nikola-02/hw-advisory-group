@@ -391,7 +391,7 @@
   margin-top: 30px;
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 24px;
 }
 
 .actionPrimary,
@@ -1183,7 +1183,7 @@
 
   .actions {
     margin-top: 32px;
-    gap: 6px;
+    gap: 16px;
     justify-content: center;
   }
 
