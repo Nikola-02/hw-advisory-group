@@ -982,11 +982,12 @@
 
   .mobileMenu {
     display: block;
-    position: absolute;
+    position: fixed;
     left: 20px;
     right: 20px;
     top: 110px;
-    bottom: 24px;
+    bottom: max(24px, env(safe-area-inset-bottom));
+    max-height: calc(100dvh - 110px - max(24px, env(safe-area-inset-bottom)));
     z-index: 4;
     margin-top: 0;
     overflow: hidden;

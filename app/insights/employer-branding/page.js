@@ -171,9 +171,13 @@ export default function EmployerBrandingPage() {
   const [language, setLanguage] = useState("sr");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isInsightsOpen, setIsInsightsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileInsightsOpen, setIsMobileInsightsOpen] = useState(false);
   const languageRef = useRef(null);
   const insightsTriggerRef = useRef(null);
   const insightsDropdownRef = useRef(null);
+  const mobileMenuTriggerRef = useRef(null);
+  const mobileMenuRef = useRef(null);
   const languageStorageKey = "hw_site_language";
   const t = translations[language];
   const laborMarketPath = "/insights/labor-market";
@@ -211,6 +215,14 @@ export default function EmployerBrandingPage() {
       if (!clickedInsightsTrigger && !clickedInsightsDropdown) {
         setIsInsightsOpen(false);
       }
+
+      const clickedMobileTrigger =
+        mobileMenuTriggerRef.current && mobileMenuTriggerRef.current.contains(event.target);
+      const clickedMobileMenu = mobileMenuRef.current && mobileMenuRef.current.contains(event.target);
+      if (!clickedMobileTrigger && !clickedMobileMenu) {
+        setIsMobileMenuOpen(false);
+        setIsMobileInsightsOpen(false);
+      }
     }
 
     document.addEventListener("mousedown", handleOutsideClick);
@@ -234,10 +246,12 @@ export default function EmployerBrandingPage() {
           </Link>
 
           <nav className={styles.rightNav}>
-            <Link href="/#expertise">{t.nav.first}</Link>
+            <Link href="/#expertise" className={styles.desktopNavItem}>
+              {t.nav.first}
+            </Link>
             <button
               type="button"
-              className={styles.navInsightsButton}
+              className={`${styles.navInsightsButton} ${styles.desktopNavItem}`}
               ref={insightsTriggerRef}
               onClick={() => setIsInsightsOpen((prevOpen) => !prevOpen)}
               aria-expanded={isInsightsOpen}
@@ -314,6 +328,26 @@ export default function EmployerBrandingPage() {
                 </div>
               )}
             </div>
+            <button
+              type="button"
+              className={`${styles.mobileMenuTrigger} ${
+                isMobileMenuOpen ? styles.mobileMenuTriggerOpen : ""
+              }`}
+              onClick={() => {
+                setIsMobileMenuOpen((prevOpen) => !prevOpen);
+                if (isMobileMenuOpen) {
+                  setIsMobileInsightsOpen(false);
+                }
+              }}
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="employer-branding-mobile-menu"
+              ref={mobileMenuTriggerRef}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </nav>
         </div>
       </header>
@@ -335,6 +369,72 @@ export default function EmployerBrandingPage() {
                 {t.insightsDropdown.employerBranding} &gt;
               </Link>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="employer-branding-mobile-menu"
+        className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ""}`}
+        ref={mobileMenuRef}
+      >
+        <div className={styles.mobileMenuInner}>
+          <Link
+            href="/#expertise"
+            className={styles.mobileMenuLink}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsMobileInsightsOpen(false);
+            }}
+          >
+            {t.nav.first}
+          </Link>
+          <button
+            type="button"
+            className={styles.mobileMenuLinkButton}
+            onClick={() => setIsMobileInsightsOpen((prevOpen) => !prevOpen)}
+            aria-expanded={isMobileInsightsOpen}
+          >
+            {t.nav.second}
+          </button>
+          <Link
+            href="/#about"
+            className={styles.mobileMenuLink}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsMobileInsightsOpen(false);
+            }}
+          >
+            {t.nav.left}
+          </Link>
+
+          <div
+            className={`${styles.mobileInsightsBlock} ${
+              isMobileInsightsOpen ? styles.mobileInsightsBlockOpen : ""
+            }`}
+          >
+            <p className={styles.mobileInsightsLabel}>{t.insightsDropdown.title} &gt;</p>
+            <div className={styles.mobileInsightsLine} />
+            <Link
+              href={laborMarketPath}
+              className={styles.mobileInsightsLink}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsMobileInsightsOpen(false);
+              }}
+            >
+              {t.insightsDropdown.laborMarket} &gt;
+            </Link>
+            <Link
+              href={employerBrandingPath}
+              className={styles.mobileInsightsLink}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsMobileInsightsOpen(false);
+              }}
+            >
+              {t.insightsDropdown.employerBranding} &gt;
+            </Link>
           </div>
         </div>
       </div>
