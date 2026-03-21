@@ -260,10 +260,14 @@ export default function Home() {
   const [language, setLanguage] = useState("sr");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isInsightsOpen, setIsInsightsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileInsightsOpen, setIsMobileInsightsOpen] = useState(false);
   const [isIntroVisible, setIsIntroVisible] = useState(false);
   const languageRef = useRef(null);
   const insightsTriggerRef = useRef(null);
   const insightsDropdownRef = useRef(null);
+  const mobileMenuTriggerRef = useRef(null);
+  const mobileMenuRef = useRef(null);
   const introSectionRef = useRef(null);
   const t = translations[language];
   const languageStorageKey = "hw_site_language";
@@ -300,6 +304,14 @@ export default function Home() {
         insightsDropdownRef.current && insightsDropdownRef.current.contains(event.target);
       if (!clickedInsightsTrigger && !clickedInsightsDropdown) {
         setIsInsightsOpen(false);
+      }
+
+      const clickedMobileTrigger =
+        mobileMenuTriggerRef.current && mobileMenuTriggerRef.current.contains(event.target);
+      const clickedMobileMenu = mobileMenuRef.current && mobileMenuRef.current.contains(event.target);
+      if (!clickedMobileTrigger && !clickedMobileMenu) {
+        setIsMobileMenuOpen(false);
+        setIsMobileInsightsOpen(false);
       }
     }
 
@@ -374,10 +386,12 @@ export default function Home() {
           </a>
 
           <nav className={styles.rightNav}>
-            <a href="#expertise">{t.nav.first}</a>
+            <a href="#expertise" className={styles.desktopNavItem}>
+              {t.nav.first}
+            </a>
             <button
               type="button"
-              className={styles.navInsightsButton}
+              className={`${styles.navInsightsButton} ${styles.desktopNavItem}`}
               ref={insightsTriggerRef}
               onClick={() => setIsInsightsOpen((prevOpen) => !prevOpen)}
               aria-expanded={isInsightsOpen}
@@ -456,6 +470,26 @@ export default function Home() {
                 </div>
               )}
             </div>
+            <button
+              type="button"
+              className={`${styles.mobileMenuTrigger} ${
+                isMobileMenuOpen ? styles.mobileMenuTriggerOpen : ""
+              }`}
+              onClick={() => {
+                setIsMobileMenuOpen((prevOpen) => !prevOpen);
+                if (isMobileMenuOpen) {
+                  setIsMobileInsightsOpen(false);
+                }
+              }}
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="home-mobile-menu"
+              ref={mobileMenuTriggerRef}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </nav>
         </header>
 
@@ -478,22 +512,90 @@ export default function Home() {
           </div>
         </div>
 
-        <section className={`${styles.content} ${isInsightsOpen ? styles.contentShifted : ""}`}>
-          <h1>
-            <strong className={styles.heroBlack}>{t.hero.strong}</strong>{" "}
-            <span className={styles.thinText}>{t.hero.thinOne}</span>{" "}
-            <em>
-              <strong className={styles.heroBlackItalic}>{t.hero.boldItalic}</strong>
-            </em>{" "}
-            {t.hero.thinTwo ? (
-              <>
-                <span className={styles.thinText}>{t.hero.thinTwo}</span>{" "}
-              </>
-            ) : null}
-            <span className={styles.goldText}>{t.hero.gold}</span>
-          </h1>
+        <div
+          id="home-mobile-menu"
+          className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ""}`}
+          ref={mobileMenuRef}
+        >
+            <div className={styles.mobileMenuInner}>
+              <a
+                href="#expertise"
+                className={styles.mobileMenuLink}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsMobileInsightsOpen(false);
+                }}
+              >
+                {t.nav.first}
+              </a>
+              <button
+                type="button"
+                className={styles.mobileMenuLinkButton}
+                onClick={() => setIsMobileInsightsOpen((prevOpen) => !prevOpen)}
+                aria-expanded={isMobileInsightsOpen}
+              >
+                {t.nav.second}
+              </button>
+              <a
+                href="#about"
+                className={styles.mobileMenuLink}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsMobileInsightsOpen(false);
+                }}
+              >
+                {t.nav.left}
+              </a>
 
-          {!isInsightsOpen && (
+              <div
+                className={`${styles.mobileInsightsBlock} ${
+                  isMobileInsightsOpen ? styles.mobileInsightsBlockOpen : ""
+                }`}
+              >
+                <p className={styles.mobileInsightsLabel}>{t.insightsDropdown.title} &gt;</p>
+                <div className={styles.mobileInsightsLine} />
+                <Link
+                  href={laborMarketPath}
+                  className={styles.mobileInsightsLink}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsMobileInsightsOpen(false);
+                  }}
+                >
+                  {t.insightsDropdown.laborMarket} &gt;
+                </Link>
+                <Link
+                  href={employerBrandingPath}
+                  className={styles.mobileInsightsLink}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsMobileInsightsOpen(false);
+                  }}
+                >
+                  {t.insightsDropdown.employerBranding} &gt;
+                </Link>
+              </div>
+            </div>
+          </div>
+
+        <section className={`${styles.content} ${isInsightsOpen ? styles.contentShifted : ""}`}>
+          {!isMobileMenuOpen && (
+            <h1>
+              <strong className={styles.heroBlack}>{t.hero.strong}</strong>{" "}
+              <span className={styles.thinText}>{t.hero.thinOne}</span>{" "}
+              <em>
+                <strong className={styles.heroBlackItalic}>{t.hero.boldItalic}</strong>
+              </em>{" "}
+              {t.hero.thinTwo ? (
+                <>
+                  <span className={styles.thinText}>{t.hero.thinTwo}</span>{" "}
+                </>
+              ) : null}
+              <span className={styles.goldText}>{t.hero.gold}</span>
+            </h1>
+          )}
+
+          {!isInsightsOpen && !isMobileMenuOpen && (
             <div className={styles.actions}>
               <Link href="/consultation" className={styles.actionPrimary}>
                 {t.hero.ctaPrimary}
