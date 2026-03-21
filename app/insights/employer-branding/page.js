@@ -96,7 +96,7 @@ const translations = {
     },
     insightsDropdown: {
       title: "Our Insights",
-      laborMarket: "Labor Market",
+      laborMarket: "Labor market",
       employerBranding: "Employer branding",
     },
     pageIntro: {
@@ -104,7 +104,7 @@ const translations = {
       titlePrefix: "Without employer branding companies become ",
       titleEmphasis: "invisible",
       titleSuffix: " employers",
-      subtitle: "The Huntwell Perspective",
+      subtitle: "A HuntWell Advisory Group Perspective",
       meta: "MARCH 28, 2026 · 3 MIN READING",
     },
     article: {

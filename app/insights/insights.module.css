@@ -39,7 +39,7 @@
 }
 
 .logo {
-  height: 42px;
+  height: 56px;
   width: auto;
 }
 
@@ -807,6 +807,10 @@
 
   .logoWrap {
     justify-self: start;
+  }
+
+  .logo {
+    height: 42px;
   }
 
   .rightNav {

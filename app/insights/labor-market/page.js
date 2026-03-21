@@ -92,13 +92,13 @@ const translations = {
     },
     insightsDropdown: {
       title: "Our Insights",
-      laborMarket: "Labor Market",
+      laborMarket: "Labor market",
       employerBranding: "Employer branding",
     },
     pageIntro: {
       tag: "Labor Market",
       title: "The Labor Market Paradox",
-      subtitle: "The Huntwell Perspective",
+      subtitle: "A HuntWell Advisory Group Perspective",
       meta: "MARCH 28, 2026 · 3 MIN READING",
     },
     article: {
