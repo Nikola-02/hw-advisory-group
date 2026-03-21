@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 
+const BOOKING_URL =
+  (typeof process.env.NEXT_PUBLIC_CALENDLY_URL === "string" && process.env.NEXT_PUBLIC_CALENDLY_URL.trim()) ||
+  "https://calendly.com/your-calendly-link/30min";
+
 const translations = {
   sr: {
     langLabel: "Jezik",
@@ -26,13 +30,8 @@ const translations = {
       boldItalic: "ne mogu",
       thinTwo: "da",
       gold: "ponude",
-      ctaPrimary: "Zakaži konsultacije",
+      ctaPrimary: "Zatražite konsultaciju",
       ctaSecondary: "Saznaj Više",
-    },
-    consent: {
-      title: "Napomena o zakazivanju",
-      text: "Nastavkom i unosom podataka za zakazivanje pristajete na uslove koriscenja Calendly platforme. Podaci za rezervaciju unose se direktno u Calendly.",
-      button: "Razumem",
     },
     footer: {
       rights: "© 2026 HUNTWELL ADVISORY GROUP. SVA PRAVA ZADRŽANA.",
@@ -150,13 +149,8 @@ const translations = {
       boldItalic: "Can",
       thinTwo: "",
       gold: "Offer",
-      ctaPrimary: "Book a Consultation",
+      ctaPrimary: "Request a Consultation",
       ctaSecondary: "Learn More",
-    },
-    consent: {
-      title: "Booking notice",
-      text: "By continuing and entering booking details, you agree to Calendly's terms of use. Reservation data is submitted directly through Calendly.",
-      button: "I understand",
     },
     footer: {
       rights: "© 2026 HUNTWELL ADVISORY GROUP. ALL RIGHTS RESERVED.",
@@ -597,9 +591,14 @@ export default function Home() {
 
           {!isInsightsOpen && !isMobileMenuOpen && (
             <div className={styles.actions}>
-              <Link href="/consultation" className={styles.actionPrimary}>
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.actionPrimary}
+              >
                 {t.hero.ctaPrimary}
-              </Link>
+              </a>
               <a href="#about" className={styles.actionSecondary}>
                 {t.hero.ctaSecondary}
               </a>

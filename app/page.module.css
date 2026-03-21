@@ -775,43 +775,6 @@
   color: #1c2c5a;
 }
 
-.consentPopup {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  width: min(360px, calc(100% - 28px));
-  background: rgba(9, 24, 40, 0.94);
-  border: 1px solid rgba(236, 176, 70, 0.6);
-  color: #f2f5fa;
-  padding: 14px 14px 12px;
-  z-index: 20;
-  backdrop-filter: blur(4px);
-}
-
-.consentPopup h3 {
-  font-size: 15px;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.consentPopup p {
-  font-size: 12px;
-  line-height: 1.25;
-  color: rgba(242, 245, 250, 0.9);
-}
-
-.consentButton {
-  margin-top: 10px;
-  border: 1px solid #ecb046;
-  background: transparent;
-  color: #ecb046;
-  padding: 7px 12px;
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
 @media (max-width: 900px) {
   .hero {
     padding: 20px 24px;
@@ -1286,20 +1249,6 @@
 
   .infoBodyText {
     font-size: 16px;
-  }
-
-  .consentPopup {
-    right: 12px;
-    bottom: 12px;
-    width: calc(100% - 24px);
-  }
-
-  .consentPopup h3 {
-    font-size: 16px;
-  }
-
-  .consentPopup p {
-    font-size: 14px;
   }
 
   .footerInner {
