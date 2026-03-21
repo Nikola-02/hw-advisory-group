@@ -380,6 +380,16 @@ export default function EmployerBrandingPage() {
       >
         <div className={styles.mobileMenuInner}>
           <Link
+            href="/#about"
+            className={styles.mobileMenuLink}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsMobileInsightsOpen(false);
+            }}
+          >
+            {t.nav.left}
+          </Link>
+          <Link
             href="/#expertise"
             className={styles.mobileMenuLink}
             onClick={() => {
@@ -397,16 +407,6 @@ export default function EmployerBrandingPage() {
           >
             {t.nav.second}
           </button>
-          <Link
-            href="/#about"
-            className={styles.mobileMenuLink}
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsMobileInsightsOpen(false);
-            }}
-          >
-            {t.nav.left}
-          </Link>
 
           <div
             className={`${styles.mobileInsightsBlock} ${

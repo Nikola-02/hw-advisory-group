@@ -291,6 +291,16 @@ export default function InsightsPage() {
       >
         <div className={styles.mobileMenuInner}>
           <Link
+            href="/#about"
+            className={styles.mobileMenuLink}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsMobileInsightsOpen(false);
+            }}
+          >
+            {t.nav.left}
+          </Link>
+          <Link
             href="/#expertise"
             className={styles.mobileMenuLink}
             onClick={() => {
@@ -308,16 +318,6 @@ export default function InsightsPage() {
           >
             {t.nav.second}
           </button>
-          <Link
-            href="/#about"
-            className={styles.mobileMenuLink}
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsMobileInsightsOpen(false);
-            }}
-          >
-            {t.nav.left}
-          </Link>
 
           <div
             className={`${styles.mobileInsightsBlock} ${
@@ -361,14 +361,16 @@ export default function InsightsPage() {
             <article className={styles.insightCard}>
               <div className={styles.insightLeft}>
                 <h3>{t.cards.title}</h3>
-                <p className={styles.insightExcerpt}>{t.cards.excerpt}</p>
-                <Link
-                  href={laborMarketPath}
-                  className={styles.insightArrow}
-                  aria-label={t.insightsDropdown.laborMarket}
-                >
-                  &gt;
-                </Link>
+                <p className={styles.insightExcerpt}>
+                  <span>{t.cards.excerpt}</span>
+                  <Link
+                    href={laborMarketPath}
+                    className={styles.insightArrow}
+                    aria-label={t.insightsDropdown.laborMarket}
+                  >
+                    &gt;
+                  </Link>
+                </p>
               </div>
               <div className={styles.insightRight}>
                 <p className={styles.insightSource}>{t.cards.source}</p>
@@ -382,15 +384,17 @@ export default function InsightsPage() {
             <article className={styles.insightCard}>
               <div className={styles.insightLeft}>
                 <h3>{t.cards.secondTitle}</h3>
-                <p className={styles.insightExcerpt}>{t.cards.secondExcerpt}</p>
-                <Link
-                  href={employerBrandingPath}
-                  className={styles.insightArrow}
-                  aria-label={t.insightsDropdown.employerBranding}
-                  onClick={() => setIsInsightsOpen(false)}
-                >
-                  &gt;
-                </Link>
+                <p className={styles.insightExcerpt}>
+                  <span>{t.cards.secondExcerpt}</span>
+                  <Link
+                    href={employerBrandingPath}
+                    className={styles.insightArrow}
+                    aria-label={t.insightsDropdown.employerBranding}
+                    onClick={() => setIsInsightsOpen(false)}
+                  >
+                    &gt;
+                  </Link>
+                </p>
               </div>
               <div className={styles.insightRight}>
                 <p className={styles.insightSource}>{t.cards.source}</p>

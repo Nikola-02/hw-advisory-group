@@ -365,7 +365,7 @@
   font-size: 16px;
   line-height: 1.6;
   font-family: "Roboto Condensed", "Roboto", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   color: #1c2c5a;
 }
 
@@ -713,7 +713,7 @@
   }
 
   .topSection .topicTag {
-    font-size: 12px;
+    font-size: 14px;
     min-height: 26px;
     min-width: 104px;
     border-width: 0.25px;
@@ -726,12 +726,12 @@
 
   .topSection .subtitle {
     margin-top: 16px;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .topSection .meta {
     margin-top: 16px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .topSection .sectionDivider {
@@ -763,6 +763,7 @@
   .rightNav {
     justify-self: end;
     gap: 10px;
+    font-size: 14px;
   }
 
   .rightNav > a {
@@ -775,15 +776,43 @@
 
   .mobileMenuTrigger {
     display: inline-flex;
+    width: 28px;
+    height: 28px;
+    gap: 5px;
+    margin-left: 6px;
+  }
+
+  .mobileMenuTrigger span {
+    width: 24px;
+    height: 2px;
+    border-radius: 2px;
+  }
+
+  .mobileMenuTriggerOpen span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .mobileMenuTriggerOpen span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .languageTrigger {
-    height: 34px;
-    padding: 0 14px;
+    height: 30px;
+    padding: 0 11px;
+    gap: 6px;
     border-radius: 999px;
     background: transparent;
     color: #1c2c5a;
     font-size: 14px;
+  }
+
+  .languageOption {
+    font-size: 15px;
+  }
+
+  .languageChevron {
+    width: 10px;
+    height: 7px;
   }
 
   .mobileMenu {
@@ -859,8 +888,8 @@
     cursor: pointer;
   }
 
-  .mobileMenuLink + .mobileMenuLinkButton,
-  .mobileMenuLinkButton + .mobileMenuLink {
+  .mobileMenuLink + .mobileMenuLink,
+  .mobileMenuLink + .mobileMenuLinkButton {
     margin-top: 10px;
   }
 
@@ -904,64 +933,91 @@
 
   .footerInner {
     width: calc(100% - 40px);
-    padding: 56px 0;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto auto auto;
-    row-gap: 6px;
-    column-gap: 10px;
-    align-items: start;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 56px 0 44px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    row-gap: 28px;
+    column-gap: 0;
+    align-items: stretch;
+    justify-items: center;
   }
 
   .footerLogoWrap {
     grid-column: 1;
-    grid-row: 1;
-    justify-self: start;
-    margin-left: -20px;
+    grid-row: auto;
+    justify-self: center;
+    margin-left: 0;
+  }
+
+  .footerLogo {
+    height: 56px;
+    width: auto;
   }
 
   .footerNav {
-    grid-column: 2;
-    grid-row: 1 / 3;
-    justify-self: start;
+    grid-column: 1;
+    grid-row: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
     margin-left: 0;
-    gap: 25px;
+    width: 100%;
   }
 
   .footerNav a {
     font-size: 16px;
-    white-space: nowrap;
+    white-space: normal;
+    text-align: center;
   }
 
   .footerSocial {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: start;
-    justify-items: start;
-    text-align: left;
-    gap: 20px;
+    grid-column: 1;
+    grid-row: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px 28px;
+    width: 100%;
+    justify-items: unset;
+    text-align: center;
   }
 
   .footerSocial a {
     font-size: 14px;
-    margin-left: 10px;
+    margin-left: 0;
   }
 
   .footerMail {
-    grid-column: 3;
-    grid-row: 2;
-    justify-self: start;
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: center;
+    margin-top: 0;
     font-size: 16px;
-    margin-top: 9px;
+    text-align: center;
   }
 
   .footerRights {
-    grid-column: 1 / 4;
-    grid-row: 3;
+    grid-column: 1;
+    grid-row: auto;
     justify-self: center;
+    width: 100%;
+    max-width: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(28, 44, 90, 0.14);
     text-align: center;
-    margin-top: 35px;
-    margin-bottom: 25px;
-    font-size: 14px;
+    font-size: 9px;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 
   /* --- Labor market article: mobile-only scale (SR + EN; scoped under .topSection .articleContent) --- */
@@ -983,7 +1039,7 @@
   .topSection .articleContent > p.articleBody {
     margin-top: 40px;
     margin-bottom: 0;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
     font-family: "Roboto Condensed", "Roboto", sans-serif;
     font-weight: 400;
@@ -1024,7 +1080,7 @@
   }
 
   .topSection .articleContent > .insightCards .insightCardText {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
     font-family: "Roboto Condensed", "Roboto", sans-serif;
     font-weight: 400;
@@ -1052,7 +1108,7 @@
   }
 
   .topSection .articleContent > .closingParagraphs .closingBody {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
     font-family: "Roboto Condensed", "Roboto", sans-serif;
     font-weight: 400;
@@ -1061,7 +1117,7 @@
 
   .topSection .articleContent > .postClosingLead {
     margin: 0 0 40px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
     font-family: "Roboto Condensed", "Roboto", sans-serif;
     font-weight: 500;
@@ -1070,7 +1126,7 @@
 
   .topSection .articleContent > .postClosingBody {
     margin: 0 0 40px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
     font-family: "Roboto Condensed", "Roboto", sans-serif;
     font-weight: 400;
@@ -1087,7 +1143,7 @@
 
   .topSection .articleContent > .articleDisclaimer {
     margin: 0;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.6;
     font-family: "Roboto Condensed", "Roboto", sans-serif;
     font-weight: 300;

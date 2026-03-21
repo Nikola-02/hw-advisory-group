@@ -105,7 +105,7 @@ const translations = {
       leadTitle:
         "There have never been more candidates. Hiring has never been lower. A paradox increasingly defining the Serbian labor market.",
       leadQuote:
-        "Serbia's labor market has all the necessary actors, yet the communication between them remains fundamentally misaligned.",
+        "The Serbian labor market has all the key players, but lacks meaningful alignment among them.",
       sectionOneTitle: "A persistent phenomenon",
       sectionOneBody:
         "There is a phenomenon that is becoming increasingly visible in the Serbian labor market, yet is rarely addressed directly. On one side, the number of people actively seeking employment continues to grow year after year. On the other, companies are hiring with increasing selectivity and caution. Between these two realities lies a gap that is not narrowing, but deepening.",
@@ -372,6 +372,16 @@ export default function LaborMarketPage() {
       >
         <div className={styles.mobileMenuInner}>
           <Link
+            href="/#about"
+            className={styles.mobileMenuLink}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsMobileInsightsOpen(false);
+            }}
+          >
+            {t.nav.left}
+          </Link>
+          <Link
             href="/#expertise"
             className={styles.mobileMenuLink}
             onClick={() => {
@@ -389,16 +399,6 @@ export default function LaborMarketPage() {
           >
             {t.nav.second}
           </button>
-          <Link
-            href="/#about"
-            className={styles.mobileMenuLink}
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsMobileInsightsOpen(false);
-            }}
-          >
-            {t.nav.left}
-          </Link>
 
           <div
             className={`${styles.mobileInsightsBlock} ${

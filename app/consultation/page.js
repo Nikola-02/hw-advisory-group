@@ -308,6 +308,16 @@ export default function ConsultationPage() {
       >
         <div className={styles.mobileMenuInner}>
           <Link
+            href="/#about"
+            className={styles.mobileMenuLink}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsMobileInsightsOpen(false);
+            }}
+          >
+            {t.nav.left}
+          </Link>
+          <Link
             href="/#expertise"
             className={styles.mobileMenuLink}
             onClick={() => {
@@ -325,16 +335,6 @@ export default function ConsultationPage() {
           >
             {t.nav.second}
           </button>
-          <Link
-            href="/#about"
-            className={styles.mobileMenuLink}
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsMobileInsightsOpen(false);
-            }}
-          >
-            {t.nav.left}
-          </Link>
 
           <div
             className={`${styles.mobileInsightsBlock} ${

@@ -519,6 +519,16 @@ export default function Home() {
         >
             <div className={styles.mobileMenuInner}>
               <a
+                href="#about"
+                className={styles.mobileMenuLink}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsMobileInsightsOpen(false);
+                }}
+              >
+                {t.nav.left}
+              </a>
+              <a
                 href="#expertise"
                 className={styles.mobileMenuLink}
                 onClick={() => {
@@ -536,16 +546,6 @@ export default function Home() {
               >
                 {t.nav.second}
               </button>
-              <a
-                href="#about"
-                className={styles.mobileMenuLink}
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsMobileInsightsOpen(false);
-                }}
-              >
-                {t.nav.left}
-              </a>
 
               <div
                 className={`${styles.mobileInsightsBlock} ${
