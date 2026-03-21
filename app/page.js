@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 
@@ -32,6 +32,11 @@ const translations = {
       gold: "ponude",
       ctaPrimary: "Zatražite konsultaciju",
       ctaSecondary: "Saznaj Više",
+      bookingNotice: {
+        text:
+          "Zakazivanje se obavlja putem eksternog servisa. HuntWell Advisory Group ne prikuplja ili obrađuje vaše podatke i ne odgovara za sadržaj ili obradu podataka tog servisa.",
+        closeAria: "Zatvori i otvori stranicu za zakazivanje",
+      },
     },
     footer: {
       rights: "© 2026 HUNTWELL ADVISORY GROUP. SVA PRAVA ZADRŽANA.",
@@ -151,6 +156,11 @@ const translations = {
       gold: "Offer",
       ctaPrimary: "Request a Consultation",
       ctaSecondary: "Learn More",
+      bookingNotice: {
+        text:
+          "Scheduling is conducted via an external service. HuntWell Advisory Group does not collect or process your data and assumes no responsibility for the content or data processing of that service.",
+        closeAria: "Close and open scheduling page",
+      },
     },
     footer: {
       rights: "© 2026 HUNTWELL ADVISORY GROUP. ALL RIGHTS RESERVED.",
@@ -257,7 +267,11 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileInsightsOpen, setIsMobileInsightsOpen] = useState(false);
   const [isIntroVisible, setIsIntroVisible] = useState(false);
+  const [showBookingNotice, setShowBookingNotice] = useState(false);
+  const [bookingPopupTop, setBookingPopupTop] = useState(null);
   const languageRef = useRef(null);
+  const bookingCloseRef = useRef(null);
+  const bookingButtonRef = useRef(null);
   const insightsTriggerRef = useRef(null);
   const insightsDropdownRef = useRef(null);
   const mobileMenuTriggerRef = useRef(null);
@@ -330,6 +344,63 @@ export default function Home() {
     observer.observe(section);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!showBookingNotice) return undefined;
+    const id = window.requestAnimationFrame(() => {
+      bookingCloseRef.current?.focus();
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [showBookingNotice]);
+
+  useLayoutEffect(() => {
+    if (!showBookingNotice) {
+      setBookingPopupTop(null);
+      return undefined;
+    }
+
+    function updateBookingPopupPosition() {
+      if (typeof window === "undefined") return;
+      if (window.innerWidth > 640) {
+        setBookingPopupTop(null);
+        return;
+      }
+      const el = bookingButtonRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      setBookingPopupTop(Math.round(rect.bottom + 8));
+    }
+
+    updateBookingPopupPosition();
+    window.addEventListener("resize", updateBookingPopupPosition);
+    window.addEventListener("scroll", updateBookingPopupPosition, true);
+
+    return () => {
+      window.removeEventListener("resize", updateBookingPopupPosition);
+      window.removeEventListener("scroll", updateBookingPopupPosition, true);
+    };
+  }, [showBookingNotice]);
+
+  function openBookingNotice() {
+    if (showBookingNotice) return;
+    if (typeof window !== "undefined" && window.innerWidth <= 640 && bookingButtonRef.current) {
+      const rect = bookingButtonRef.current.getBoundingClientRect();
+      setBookingPopupTop(Math.round(rect.bottom + 8));
+    } else {
+      setBookingPopupTop(null);
+    }
+    setShowBookingNotice(true);
+  }
+
+  function dismissBookingNoticeAndOpen() {
+    setShowBookingNotice(false);
+    setBookingPopupTop(null);
+    const a = document.createElement("a");
+    a.href = BOOKING_URL;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.click();
+  }
 
   function renderTextParts(parts) {
     return parts.map((part, index) => (
@@ -591,14 +662,42 @@ export default function Home() {
 
           {!isInsightsOpen && !isMobileMenuOpen && (
             <div className={styles.actions}>
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.actionPrimary}
-              >
-                {t.hero.ctaPrimary}
-              </a>
+              <div className={styles.actionPrimaryWrap}>
+                <button
+                  type="button"
+                  ref={bookingButtonRef}
+                  className={styles.actionPrimary}
+                  onClick={openBookingNotice}
+                  aria-expanded={showBookingNotice}
+                  aria-haspopup="dialog"
+                >
+                  {t.hero.ctaPrimary}
+                </button>
+                {showBookingNotice ? (
+                  <div
+                    className={`${styles.bookingGlassPopup} ${
+                      bookingPopupTop !== null ? styles.bookingGlassPopupMobileFixed : ""
+                    }`}
+                    style={bookingPopupTop !== null ? { top: bookingPopupTop } : undefined}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="booking-notice-text"
+                  >
+                    <button
+                      type="button"
+                      ref={bookingCloseRef}
+                      className={styles.bookingGlassClose}
+                      onClick={dismissBookingNoticeAndOpen}
+                      aria-label={t.hero.bookingNotice.closeAria}
+                    >
+                      ×
+                    </button>
+                    <p id="booking-notice-text" className={styles.bookingGlassText}>
+                      {t.hero.bookingNotice.text}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
               <a href="#about" className={styles.actionSecondary}>
                 {t.hero.ctaSecondary}
               </a>

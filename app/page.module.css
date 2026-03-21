@@ -434,6 +434,77 @@
   -webkit-backdrop-filter: blur(44px) saturate(150%);
 }
 
+.actionPrimaryWrap {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.actionPrimaryWrap .actionPrimary {
+  appearance: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.bookingGlassPopup {
+  position: absolute;
+  z-index: 30;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  top: calc(100% + 10px);
+  bottom: auto;
+  width: min(300px, calc(50vw - 56px));
+  max-width: min(300px, calc(50vw - 56px));
+  padding: 14px 36px 14px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(18, 32, 58, 0.82);
+  box-shadow: 0 12px 40px rgba(4, 12, 28, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  color: rgba(255, 255, 255, 0.96);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.bookingGlassClose {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.bookingGlassClose:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.bookingGlassText {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
 .introSection {
   background: #ffffff;
 }
@@ -1193,6 +1264,40 @@
     font-weight: 500;
     letter-spacing: 0;
     padding: 8px 12px;
+  }
+
+  .actionPrimaryWrap .actionPrimary {
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .bookingGlassPopup {
+    padding: 12px 34px 12px 12px;
+    width: min(288px, calc(100vw - 32px));
+    max-width: min(288px, calc(100vw - 32px));
+  }
+
+  .bookingGlassPopupMobileFixed {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: auto;
+    z-index: 100;
+    margin: 0;
+  }
+
+  .bookingGlassText {
+    font-size: 12px;
+    line-height: 1.42;
+  }
+
+  .bookingGlassClose {
+    width: 28px;
+    height: 28px;
+    top: 6px;
+    right: 6px;
+    font-size: 20px;
   }
 
   .detailsArea {
