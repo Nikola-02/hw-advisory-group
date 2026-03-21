@@ -33,8 +33,9 @@ const translations = {
       ctaPrimary: "Zatražite konsultaciju",
       ctaSecondary: "Saznaj Više",
       bookingNotice: {
-        text:
-          "Zakazivanje se obavlja putem eksternog servisa. HuntWell Advisory Group ne prikuplja ili obrađuje vaše podatke i ne odgovara za sadržaj ili obradu podataka tog servisa.",
+        line1: "Zakazivanje se obavlja putem eksternog servisa. ",
+        line2:
+          "HuntWell Advisory Group ne prikuplja ili obrađuje vaše podatke i ne odgovara za sadržaj ili obradu podataka tog servisa.",
         closeAria: "Zatvori i otvori stranicu za zakazivanje",
       },
     },
@@ -157,8 +158,9 @@ const translations = {
       ctaPrimary: "Request a Consultation",
       ctaSecondary: "Learn More",
       bookingNotice: {
-        text:
-          "Scheduling is conducted via an external service. HuntWell Advisory Group does not collect or process your data and assumes no responsibility for the content or data processing of that service.",
+        line1: "Scheduling is conducted via an external service. ",
+        line2:
+          "HuntWell Advisory Group does not collect or process your data and assumes no responsibility for the content or data processing of that service.",
         closeAria: "Close and open scheduling page",
       },
     },
@@ -675,26 +677,31 @@ export default function Home() {
                 </button>
                 {showBookingNotice ? (
                   <div
-                    className={`${styles.bookingGlassPopup} ${
+                    className={`${styles.bookingGlassPopupShell} ${
                       bookingPopupTop !== null ? styles.bookingGlassPopupMobileFixed : ""
                     }`}
                     style={bookingPopupTop !== null ? { top: bookingPopupTop } : undefined}
-                    role="dialog"
-                    aria-modal="true"
-                    aria-labelledby="booking-notice-text"
                   >
-                    <button
-                      type="button"
-                      ref={bookingCloseRef}
-                      className={styles.bookingGlassClose}
-                      onClick={dismissBookingNoticeAndOpen}
-                      aria-label={t.hero.bookingNotice.closeAria}
+                    <div
+                      className={styles.bookingGlassPopup}
+                      role="dialog"
+                      aria-modal="true"
+                      aria-labelledby="booking-notice-text"
                     >
-                      ×
-                    </button>
-                    <p id="booking-notice-text" className={styles.bookingGlassText}>
-                      {t.hero.bookingNotice.text}
-                    </p>
+                      <button
+                        type="button"
+                        ref={bookingCloseRef}
+                        className={styles.bookingGlassClose}
+                        onClick={dismissBookingNoticeAndOpen}
+                        aria-label={t.hero.bookingNotice.closeAria}
+                      >
+                        ×
+                      </button>
+                      <p id="booking-notice-text" className={styles.bookingGlassText}>
+                        <span className={styles.bookingGlassLine1}>{t.hero.bookingNotice.line1}</span>
+                        <span className={styles.bookingGlassLine2}>{t.hero.bookingNotice.line2}</span>
+                      </p>
+                    </div>
                   </div>
                 ) : null}
               </div>

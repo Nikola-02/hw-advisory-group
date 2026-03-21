@@ -449,24 +449,27 @@
   cursor: pointer;
 }
 
-.bookingGlassPopup {
+/* Centriranje ispod dugmeta: transform ostaje na omotaču, ne na panelu. */
+.bookingGlassPopupShell {
   position: absolute;
   z-index: 30;
   left: 50%;
-  right: auto;
   transform: translateX(-50%);
   top: calc(100% + 10px);
-  bottom: auto;
+  width: max-content;
+  max-width: min(420px, calc(100vw - 48px));
+}
+
+.bookingGlassPopup {
+  position: relative;
   width: min(300px, calc(50vw - 56px));
   max-width: min(300px, calc(50vw - 56px));
   padding: 14px 36px 14px 14px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: rgba(18, 32, 58, 0.82);
-  box-shadow: 0 12px 40px rgba(4, 12, 28, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  color: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(28, 44, 90, 0.22);
+  background: rgba(224, 232, 248, 0.82);
+  box-shadow: 0 12px 40px rgba(28, 44, 90, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  color: #1c2c5a;
   text-align: left;
   box-sizing: border-box;
 }
@@ -481,8 +484,8 @@
   margin: 0;
   border: none;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background: rgba(28, 44, 90, 0.08);
+  color: #1c2c5a;
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
@@ -493,7 +496,7 @@
 }
 
 .bookingGlassClose:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(28, 44, 90, 0.14);
 }
 
 .bookingGlassText {
@@ -503,6 +506,37 @@
   font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 400;
   letter-spacing: 0.01em;
+}
+
+.bookingGlassLine1,
+.bookingGlassLine2 {
+  display: inline;
+}
+
+@media (min-width: 641px) {
+  .bookingGlassPopupShell {
+    max-width: min(420px, calc(100vw - 48px));
+  }
+
+  .bookingGlassPopup {
+    width: max-content;
+    max-width: min(420px, calc(100vw - 48px));
+  }
+
+  .bookingGlassLine1 {
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    line-height: 1.35;
+  }
+
+  .bookingGlassLine2 {
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 1.45;
+  }
 }
 
 .introSection {
@@ -1280,11 +1314,11 @@
   .bookingGlassPopupMobileFixed {
     position: fixed;
     left: 50%;
-    right: auto;
     transform: translateX(-50%);
     bottom: auto;
     z-index: 100;
-    margin: 0;
+    width: min(288px, calc(100vw - 32px));
+    max-width: min(288px, calc(100vw - 32px));
   }
 
   .bookingGlassText {
