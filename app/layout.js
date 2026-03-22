@@ -8,34 +8,64 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "HuntWell - Advisory Group",
+  title: {
+    default: "HuntWell Advisory Group",
+    template: "%s | HuntWell Advisory Group",
+  },
   description:
-    "HuntWell Advisory Group is a strategic consulting firm specializing in labor market intelligence, critical talent identification, employer branding, and advisory services for organizations seeking stronger market positioning and high-impact business decisions.",
+    "HuntWell Advisory Group is a strategic consulting firm in Belgrade focused on labor market intelligence, executive and critical role advisory, talent mapping, and employer branding.",
   keywords: [
     "HuntWell Advisory Group",
+    "HuntWell",
+    "Hunt Well Advisory Group",
     "strategic consulting",
     "labor market intelligence",
     "talent identification",
-    "critical talent",
+    "executive search advisory",
+    "critical role advisory",
     "employer branding",
-    "market positioning",
-    "HR advisory",
-    "business advisory",
+    "talent market intelligence",
+    "leadership potential assessment",
+    "Belgrade consulting",
   ],
   metadataBase: new URL("https://huntwell.rs"),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "HuntWell - Advisory Group",
+    title: "HuntWell Advisory Group",
     description:
-      "Strategic consulting in labor market intelligence, critical talent identification, employer branding, and high-impact advisory services.",
+      "Strategic consulting in labor market intelligence, executive and critical role advisory, and employer branding.",
     url: "https://huntwell.rs",
     siteName: "HuntWell Advisory Group",
     type: "website",
+    locale: "en_RS",
+    images: [
+      {
+        url: "/hw_advisory_group_blue_logo.png",
+        width: 1200,
+        height: 630,
+        alt: "HuntWell Advisory Group",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "HuntWell - Advisory Group",
+    title: "HuntWell Advisory Group",
     description:
-      "Strategic consulting in labor market intelligence, critical talent identification, employer branding, and high-impact advisory services.",
+      "Strategic consulting in labor market intelligence, executive and critical role advisory, and employer branding.",
+    images: ["/hw_advisory_group_blue_logo.png"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -43,8 +73,32 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "HuntWell Advisory Group",
+    url: "https://huntwell.rs",
+    logo: "https://huntwell.rs/hw_advisory_group_blue_logo.png",
+    email: "contact@huntwell.rs",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Belgrade",
+      addressCountry: "RS",
+    },
+    sameAs: [
+      "https://www.instagram.com/huntwell.group?igsh=MW1kYWk5cm9mNmpkMg%3D%3D&utm_source=qr",
+      "https://www.linkedin.com/company/huntwell-advisory-group/?viewAsMember=true",
+    ],
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+      </head>
       <body className={roboto.className}>
         {children}
       </body>
