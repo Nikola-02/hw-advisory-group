@@ -1,14 +1,14 @@
 export const metadata = {
   title: "Employer Branding Insights",
   description:
-    "Employer branding analysis and talent positioning insights from HuntWell Advisory Group.",
+    "HuntWell Advisory Group provides employer branding analysis and talent positioning insights.",
   alternates: {
     canonical: "/insights/employer-branding",
   },
   openGraph: {
     title: "Employer Branding Insights | HuntWell Advisory Group",
     description:
-      "Employer branding analysis and talent positioning insights from HuntWell Advisory Group.",
+      "HuntWell Advisory Group provides employer branding analysis and talent positioning insights.",
     url: "https://huntwell.rs/insights/employer-branding",
   },
 };

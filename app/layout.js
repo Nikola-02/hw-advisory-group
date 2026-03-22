@@ -74,7 +74,7 @@ export const metadata = {
   openGraph: {
     title: "HuntWell Advisory Group",
     description:
-      "Strategic consulting in labor market intelligence, executive and critical role advisory, and employer branding.",
+      "HuntWell Advisory Group provides strategic consulting in labor market intelligence, executive and critical role advisory, and employer branding.",
     url: "https://huntwell.rs",
     siteName: "HuntWell Advisory Group",
     type: "website",
@@ -92,7 +92,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "HuntWell Advisory Group",
     description:
-      "Strategic consulting in labor market intelligence, executive and critical role advisory, and employer branding.",
+      "HuntWell Advisory Group provides strategic consulting in labor market intelligence, executive and critical role advisory, and employer branding.",
     images: ["/hw_advisory_group_blue_logo.png"],
   },
   icons: {
