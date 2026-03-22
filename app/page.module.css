@@ -1107,7 +1107,7 @@
     content: "";
     position: absolute;
     inset: -20px;
-    background-image: url("/hero_section_golf_hw.jpg");
+    background-image: url("/hero_section_golf_outside_hw.jpg");
     background-size: cover;
     background-position: center 80%;
     filter: blur(4px) saturate(100%);

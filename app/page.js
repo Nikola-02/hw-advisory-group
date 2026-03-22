@@ -433,7 +433,7 @@ export default function Home() {
     <main id="top">
       <section className={styles.hero}>
         <img
-          src="/hero_section_golf_hw.jpg"
+          src="/hero_section_golf_outside_hw.jpg"
           alt=""
           aria-hidden="true"
           className={styles.heroImage}
