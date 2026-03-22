@@ -519,14 +519,14 @@ export default function EmployerBrandingPage() {
               target="_blank"
               rel="noreferrer"
             >
-              INSTAGRAM ↗
+              INSTAGRAM {"\u2197\uFE0E"}
             </a>
             <a
               href="https://www.linkedin.com/company/huntwell-advisory-group/?viewAsMember=true"
               target="_blank"
               rel="noreferrer"
             >
-              LINKEDIN ↗
+              LINKEDIN {"\u2197\uFE0E"}
             </a>
           </div>
 
