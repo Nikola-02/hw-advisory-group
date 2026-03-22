@@ -428,11 +428,15 @@ export default function InsightsPage() {
           </nav>
 
           <div className={styles.footerSocial}>
-            <a href="#" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.instagram.com/huntwell.group?igsh=MW1kYWk5cm9mNmpkMg%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noreferrer"
+            >
               INSTAGRAM ↗
             </a>
             <a
-              href="https://www.linkedin.com/company/huntwell-advisory-group/"
+              href="https://www.linkedin.com/company/huntwell-advisory-group/?viewAsMember=true"
               target="_blank"
               rel="noreferrer"
             >
