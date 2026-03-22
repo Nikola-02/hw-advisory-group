@@ -411,6 +411,7 @@
 
 .insightExcerpt .insightArrow {
   display: block;
+  width: max-content;
   margin-top: 16px;
   margin-left: 0;
   font-size: 152px;
