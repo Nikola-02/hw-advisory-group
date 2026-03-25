@@ -640,7 +640,7 @@
 
 .infoList {
   display: grid;
-  gap: 46px;
+  gap: 80px;
   padding-left: 0;
 }
 
@@ -652,7 +652,7 @@
   text-transform: uppercase;
   letter-spacing: 0;
   color: #1c2c5a;
-  margin-bottom: 9px;
+  margin-bottom: 14px;
 }
 
 .infoBodyText {
@@ -1391,13 +1391,13 @@
   }
 
   .infoList {
-    gap: 30px;
+    gap: 80px;
     padding-left: 0;
   }
 
   .infoList h3 {
     font-size: 18px;
-    margin-bottom: 9px;
+    margin-bottom: 14px;
   }
 
   .infoBodyText {
