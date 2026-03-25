@@ -1085,15 +1085,17 @@
     min-width: 120px;
   }
 
-  /* absolute unutar .hero da meni skroluje sa stranicom, a ne lebdi u viewport-u */
+  /* absolute unutar .hero; 100svh umesto 100dvh — dvh menja visinu dok skroluješ (URL bar), pa meni „raste“ */
   .mobileMenu {
     display: block;
     position: absolute;
     left: 20px;
     right: 20px;
     top: 110px;
-    height: calc(100dvh - 110px - max(24px, env(safe-area-inset-bottom)));
-    max-height: calc(100dvh - 110px - max(24px, env(safe-area-inset-bottom)));
+    height: calc(100vh - 110px - max(24px, env(safe-area-inset-bottom)));
+    max-height: calc(100vh - 110px - max(24px, env(safe-area-inset-bottom)));
+    height: calc(100svh - 110px - max(24px, env(safe-area-inset-bottom)));
+    max-height: calc(100svh - 110px - max(24px, env(safe-area-inset-bottom)));
     z-index: 4;
     margin-top: 0;
     overflow: hidden;
