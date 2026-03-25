@@ -276,6 +276,7 @@ export default function Home() {
   const bookingButtonRef = useRef(null);
   const insightsTriggerRef = useRef(null);
   const insightsDropdownRef = useRef(null);
+  const footerInsightsRef = useRef(null);
   const mobileMenuTriggerRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const introSectionRef = useRef(null);
@@ -312,14 +313,16 @@ export default function Home() {
         insightsTriggerRef.current && insightsTriggerRef.current.contains(event.target);
       const clickedInsightsDropdown =
         insightsDropdownRef.current && insightsDropdownRef.current.contains(event.target);
-      if (!clickedInsightsTrigger && !clickedInsightsDropdown) {
+      const clickedFooterInsights =
+        footerInsightsRef.current && footerInsightsRef.current.contains(event.target);
+      if (!clickedInsightsTrigger && !clickedInsightsDropdown && !clickedFooterInsights) {
         setIsInsightsOpen(false);
       }
 
       const clickedMobileTrigger =
         mobileMenuTriggerRef.current && mobileMenuTriggerRef.current.contains(event.target);
       const clickedMobileMenu = mobileMenuRef.current && mobileMenuRef.current.contains(event.target);
-      if (!clickedMobileTrigger && !clickedMobileMenu) {
+      if (!clickedMobileTrigger && !clickedMobileMenu && !clickedFooterInsights) {
         setIsMobileMenuOpen(false);
         setIsMobileInsightsOpen(false);
       }
@@ -412,6 +415,25 @@ export default function Home() {
     ));
   }
 
+  function handleFooterInsightsClick() {
+    const isMobileNav =
+      typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches;
+    if (isMobileNav) {
+      setIsMobileMenuOpen(true);
+      setIsMobileInsightsOpen(true);
+      setIsInsightsOpen(false);
+    } else {
+      setIsInsightsOpen(true);
+      setIsMobileMenuOpen(false);
+      setIsMobileInsightsOpen(false);
+    }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.getElementById("site-header")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  }
+
   function renderIntroStatement(parts) {
     return parts.map((part, index) => {
       let className = "";
@@ -438,7 +460,7 @@ export default function Home() {
           aria-hidden="true"
           className={styles.heroImage}
         />
-        <header className={styles.header}>
+        <header id="site-header" className={styles.header}>
           <a href="#about" className={styles.leftLink}>
             {t.nav.left}
           </a>
@@ -795,7 +817,16 @@ export default function Home() {
           <nav className={styles.footerNav}>
             <a href="#about">{t.nav.left}</a>
             <a href="#expertise">{t.nav.first}</a>
-            <Link href="/#top">{t.nav.second}</Link>
+            <button
+              type="button"
+              ref={footerInsightsRef}
+              className={styles.footerNavInsights}
+              onClick={handleFooterInsightsClick}
+              aria-haspopup="true"
+              aria-expanded={isInsightsOpen || (isMobileMenuOpen && isMobileInsightsOpen)}
+            >
+              {t.nav.second}
+            </button>
           </nav>
 
           <div className={styles.footerSocial}>

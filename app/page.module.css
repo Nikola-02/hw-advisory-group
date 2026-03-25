@@ -640,7 +640,7 @@
 
 .infoList {
   display: grid;
-  gap: 100px;
+  gap: 46px;
   padding-left: 0;
 }
 
@@ -817,7 +817,16 @@
   margin-left: clamp(110px, 6vw, 110px);
 }
 
-.footerNav a {
+.footerNav button.footerNavInsights {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.footerNav a,
+.footerNav button.footerNavInsights {
   display: inline-flex;
   width: fit-content;
   justify-self: start;
@@ -828,7 +837,8 @@
   position: relative;
 }
 
-.footerNav a::after {
+.footerNav a::after,
+.footerNav button.footerNavInsights::after {
   content: "";
   position: absolute;
   left: 0;
@@ -840,7 +850,8 @@
   transition: opacity 200ms ease-out;
 }
 
-.footerNav a:hover::after {
+.footerNav a:hover::after,
+.footerNav button.footerNavInsights:hover::after {
   opacity: 1;
 }
 
@@ -1074,13 +1085,14 @@
     min-width: 120px;
   }
 
+  /* absolute unutar .hero da meni skroluje sa stranicom, a ne lebdi u viewport-u */
   .mobileMenu {
     display: block;
-    position: fixed;
+    position: absolute;
     left: 20px;
     right: 20px;
     top: 110px;
-    bottom: max(24px, env(safe-area-inset-bottom));
+    height: calc(100dvh - 110px - max(24px, env(safe-area-inset-bottom)));
     max-height: calc(100dvh - 110px - max(24px, env(safe-area-inset-bottom)));
     z-index: 4;
     margin-top: 0;
@@ -1377,13 +1389,13 @@
   }
 
   .infoList {
-    gap: 100px;
+    gap: 30px;
     padding-left: 0;
   }
 
   .infoList h3 {
     font-size: 18px;
-    margin-bottom: 18px;
+    margin-bottom: 9px;
   }
 
   .infoBodyText {
@@ -1427,7 +1439,8 @@
     width: 100%;
   }
 
-  .footerNav a {
+  .footerNav a,
+  .footerNav button.footerNavInsights {
     font-size: 16px;
     white-space: normal;
     text-align: center;

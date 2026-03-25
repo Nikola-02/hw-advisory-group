@@ -493,7 +493,16 @@
   margin-left: clamp(110px, 6vw, 110px);
 }
 
-.footerNav a {
+.footerNav button.footerNavInsights {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.footerNav a,
+.footerNav button.footerNavInsights {
   display: inline-flex;
   width: fit-content;
   justify-self: start;
@@ -504,7 +513,8 @@
   position: relative;
 }
 
-.footerNav a::after {
+.footerNav a::after,
+.footerNav button.footerNavInsights::after {
   content: "";
   position: absolute;
   left: 0;
@@ -516,7 +526,8 @@
   transition: opacity 200ms ease-out;
 }
 
-.footerNav a:hover::after {
+.footerNav a:hover::after,
+.footerNav button.footerNavInsights:hover::after {
   opacity: 1;
 }
 
@@ -1022,7 +1033,8 @@
     width: 100%;
   }
 
-  .footerNav a {
+  .footerNav a,
+  .footerNav button.footerNavInsights {
     font-size: 16px;
     white-space: normal;
     text-align: center;
