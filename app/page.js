@@ -79,7 +79,7 @@ const translations = {
             ],
           },
           {
-            title: "SAVETOVANJE ZA ULAZAK NA TRŽIŠTE I USPOSTAVLJANJE POSLOVANJA",
+            title: "ULAZAK NA TRŽIŠTE I USPOSTAVLJANJE POSLOVANJA",
             textParts: [
               {
                 text: "Podrška kompanijama u definisanju i usklađivanju pristupa ",
