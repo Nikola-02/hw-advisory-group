@@ -400,7 +400,7 @@
 @media (min-width: 641px) {
   .content h1,
   .heroSubtitle {
-    transform: translateY(-15px);
+    transform: translateY(-17px);
   }
 }
 
