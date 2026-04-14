@@ -30,6 +30,7 @@ const translations = {
       boldItalic: "ne mogu",
       thinTwo: "da",
       gold: "ponude",
+      subtitle: "Savetovanje u oblasti tržišta rada",
       ctaPrimary: "Zatražite konsultaciju",
       ctaSecondary: "Saznaj Više",
       bookingNotice: {
@@ -78,13 +79,13 @@ const translations = {
             ],
           },
           {
-            title: "ARHITEKTURA OGLASA",
+            title: "SAVETOVANJE ZA ULAZAK NA TRŽIŠTE I USPOSTAVLJANJE POSLOVANJA",
             textParts: [
               {
-                text: "Oblikujemo strukturu, ton i logiku kroz koju organizacije predstavljaju ",
+                text: "Podrška kompanijama u definisanju i usklađivanju pristupa ",
               },
-              { text: "profesionalne prilike", emphasis: true },
-              { text: " tržištu rada." },
+              { text: "ulasku na tržište", emphasis: true },
+              { text: " i uspostavljanju poslovanja u novom okruženju." },
             ],
           },
         ],
@@ -155,6 +156,7 @@ const translations = {
       boldItalic: "Can",
       thinTwo: "",
       gold: "Offer",
+      subtitle: "Labor Market Advisory",
       ctaPrimary: "Request a Consultation",
       ctaSecondary: "Learn More",
       bookingNotice: {
@@ -205,13 +207,13 @@ const translations = {
             ],
           },
           {
-            title: "Opportunity Positioning",
+            title: "Market Entry and Business Establishment Advisory",
             textParts: [
               {
-                text: "We design the structure, tone, and logic through which organizations present ",
+                text: "Supporting companies in defining and aligning their approach to ",
               },
-              { text: "professional opportunities", emphasis: true },
-              { text: " to the labor market." },
+              { text: "market entry", emphasis: true },
+              { text: " and business establishment in a new environment." },
             ],
           },
         ],
@@ -683,6 +685,8 @@ export default function Home() {
               <span className={styles.goldText}>{t.hero.gold}</span>
             </h1>
           )}
+
+          {!isMobileMenuOpen && <p className={styles.heroSubtitle}>{t.hero.subtitle}</p>}
 
           {!isInsightsOpen && !isMobileMenuOpen && (
             <div className={styles.actions}>

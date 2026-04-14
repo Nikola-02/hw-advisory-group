@@ -387,6 +387,16 @@
   font-weight: 900;
 }
 
+.heroSubtitle {
+  margin: 14px auto 0;
+  max-width: min(100%, 760px);
+  font-size: 24px;
+  line-height: 1.35;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+}
+
 .actions {
   margin-top: 30px;
   display: flex;
@@ -1298,6 +1308,13 @@
     font-weight: 900;
     font-style: italic;
     color: #ecb046;
+  }
+
+  .heroSubtitle {
+    margin-top: 12px;
+    max-width: min(100%, 360px);
+    font-size: 18px;
+    line-height: 1.4;
   }
 
   .actions {
