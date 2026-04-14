@@ -31,7 +31,7 @@ const translations = {
       thinTwo: "da",
       gold: "ponude",
       subtitle: "Savetovanje u oblasti tržišta rada",
-      ctaPrimary: "Zatražite konsultaciju",
+      ctaPrimary: "Zatraži konsultaciju",
       ctaSecondary: "Saznaj Više",
       bookingNotice: {
         line1: "Zakazivanje se obavlja putem eksternog servisa. ",
